@@ -1,0 +1,105 @@
+1.组件的变化
+    1) 2.0模板需要一个外围标签包裹
+
+    2) 组件声明方式
+    1.0 var aCom = Vue.extend({
+        template: `
+            <p>这是组件</p>
+        `
+    });
+
+    2.0 var aCom = {
+        template: `
+            <p>这是组件</p>
+        `
+    }
+
+2.生命周期（vue实例，还是组件都会执行）
+    1.0) 的生命周期
+        init
+        created
+        beforeCompile
+        compiled
+        ready
+        beforeDestroy
+
+    2.0) 的生命周期
+        beforeCreate 在实例初始化之后，数据观测和事件配置之前被调用
+        created  数据观测和事件配置完成
+
+        beforeMount  数据观测和事件挂载到dom结构之前
+        mounted  数据观测和事件挂载到dom结构完成了
+
+        beforeUpdate
+        updated
+
+        activated
+        deactivated
+
+        beforeDestroy
+        destroyed
+
+3.for循环的变化
+    在2.0中可以遍历重复的数据(数字，字符串)
+    改变遍历的方式
+    1.0 使用track-by="$index"
+    2.0 使用:key="index"
+
+    对数组遍历取消了$index
+    替换方式
+    v-for="(val, index) in arr"
+
+    对对象的遍历取消了$key, $index
+    替换方式
+    v-for="(val, key) in obj"
+
+4.vue1.0body可以直接设置为vue实例的el；
+  vue2.0body不可以直接设置为vue实例的el；
+
+5.过滤器的变化
+    1）.自定义过滤器参数传入发生变化
+    1.0版本：
+        {{message | filterStr 'QF'}}
+    2.0版本
+        {{message | filterStr('QF')}}
+        {{message | filterStr('QF', '123')}}
+    2）.vue2.0没有提供任何已有过滤器
+    3）.json对象不需要过滤器
+
+6.组件通信的变化
+
+    1）1.0版本 子组件要改变父组件的数据
+    <aaa :msg.sync="message"></aaa>
+    2.0解决方式： 传入引用类型的数据
+
+    //在2.0中，props中接收到的值，是什么就是什么，不允许更换
+    解决方法:将props中的值给到data中的值
+
+    2）组件通信的变化
+    不是使用vm.$broadcast vm.$dispatch
+    解决办法：借助空的vue实例对象，专门用来处理组件于组件之间通信的事件
+
+7.vue2.0动画的改变
+
+8.路由
+    之前vue1.0
+    vue-router  0.7.13
+
+    vue2.0
+    vue-router 2.0
+
+
+9.v-if
+    2.0新增 v-else-if
+
+10.v-el(1.0的指令)
+    2.0 没有这个指令了
+
+11.路由区别
+    1）使用的路由的版本不同
+    2）跳转按钮地址绑定方式不同（v-link \  router-link to）
+    3）在2.0中组件必须用一个标签包裹
+    4）创建组件的方式不同
+    5）配置路由的方式不同
+    6）启动路由的方式不同
+

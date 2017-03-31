@@ -1,0 +1,119 @@
+JSX 的基本语法规则：遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析
+组件的属性可以在组件类的 this.props 对象上获取
+class 属性需要写成 className ，for 属性需要写成 htmlFor
+this.props.children 的值有三种可能：如果当前组件没有子节点，它就是 undefined ;如果有一个子节点，数据类型是 object ；如果有多个子节点，数据类型就是 array
+React 提供一个工具方法 React.Children 来处理 this.props.children 。我们可以用 React.Children.map 来遍历子节点
+由于 this.refs.[refName] 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错
+this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性
+我们写一个XML标签，实质上就是在调用 React.createElement 这个方法，并返回一个 ReactElement 对象
+渲染HTML标签，声明变量采用 首字母小写
+渲染React组件，声明变量采用 首字母大写
+当需要拓展我们的属性的时候，定义个一个属性对象，并通过 {…props} 的方式引入
+属性值使用表达式，只要用 {} 替换 ""
+在一个组件的子元素位置使用注释要用 {} 包起来
+直接在标签上使用style属性时，要写成style={{}}是两个大括号
+margin-top要写成marginTop
+如果需要使用自定义属性，要加 data- 前缀
+在编写JSX时，在 { } 中不能使用语句（if语句、for语句等等），但可以使用求值表达式
+map遍历的时候，需要为每一条记录添加key
+在ES6里，我们通过定义一个继承自React.Component的class来定义一个组件类
+给组件定义方法不再用 名字: function()的写法，而是直接用名字()，在方法的最后也不能有逗号了
+在ES6下，你需要通过bind来绑定this引用，或者使用箭头函数（它会绑定当前scope的this引用）来调用
+sources下，点开可以看到webpack:目录，里面可以直接看到我们开发态的源代码，方便调试
+"build": "rimraf app/dist && webpack -p --env.config production" 先清除dist目录
+
+//===================================================================
+凡是使用 JSX 的地方，都要加上 type="text/babel" 
+	例： <script type="text/babel"> 。。。 </script>
+ReactDOM.render()		//用于将模板转为 HTML 语言，并插入指定的 DOM 节点。
+	例：ReactDOM.render(
+			<h1>Hello, world!</h1>,
+		  	document.getElementById('example')
+		);
+//========================组件============================	
+//--------------组件的定义----------------    
+
+1.组件类只能包含一个顶层标签，否则也会报错。
+2.组件类的第一个字母必须大写
+3.this.props.results			//获得组件属性数据
+4.this.props.children 属性表示组件的所有子节点
+5.getDefaultProps 方法可以用来设置组件属性的默认值。
+6.getInitialState 方法用于定义初始状态
+7.this.refs.[refName] 属性获取的是真实 DOM
+
+var HelloMessage = React.createClass({
+	//---------自定义的方法-------
+	handleClick: function() {
+    	this.refs.myTextInput.focus();
+  	},
+  	
+	//---------自带的方法---------
+	//设置组件属性的默认值
+	getDefaultProps : function () {
+	    return {
+	      title : 'Hello World'
+	    };
+	},
+	//用于定义初始状态
+	getInitialState(){
+		return {liked: false};
+	}
+	//返回组件
+  	render() {
+    	return <div>
+    				<h1>Hello {this.props.name}</h1>
+    				<p>{this.props.title}</p>
+    		   </div>;
+  	}
+});
+
+//--------------组件的使用-------------------
+
+ReactDOM.render(
+  <HelloMessage name="John" />,
+  document.getElementById('example')
+);
+
+//=======================最简单的程序====================================
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>react练习</title>
+		<script src="lib/react.js" ></script>			<!--React 的核心库-->
+		<script src="lib/react-dom.js" ></script>		<!--提供与 DOM 相关的功能-->
+		<script src="lib/browser.min.js" ></script>		<!--将 JSX 语法转为 JavaScript 语法-->
+	</head>
+	
+	
+	<body>
+		<div id="example"></div>
+		
+		<!--凡事有使用JSX的地方都要加上type="text/babel"-->
+		<script  type="text/babel" >
+		
+			//组件定义
+			var ChildList = React.createClass({
+				render: function() {
+					var results = this.props.results;
+					return(
+						<ol>
+					        {results.map(function(result) {
+					          return <li key={result.id}>{result.text}</li>;
+					        })}
+					    </ol>
+					);
+				}
+			});
+			
+			var data = [{ id: 1, text: 'one' }, { id: 2, text: 'two' }, { id: 3, text: 'three' }];
+			
+			//于将模板转为 HTML 语言，并插入指定的 DOM 节点
+			ReactDOM.render(
+				<ChildList results={data} />,
+				document.getElementById('example')
+			);
+		</script>
+	</body>
+</html>
+//--------------------------------------------------------------------

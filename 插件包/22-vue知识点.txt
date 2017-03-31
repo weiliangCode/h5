@@ -1,0 +1,261 @@
+//-----------使用脚手架搭建开发环境-------------------
+1. 安装全局脚手架
+  npm install -g vue-cli
+
+2.查看可以使用的模板
+  vue list
+
+3.创建一个新文件夹，在命令行中进入文件夹
+  D:
+  cd 文件路径
+
+4.创建一个基于 webpack 模板的新项目
+  vue init 模板名 项目名
+  例：vue init webpack my-project
+
+5.进入文件夹，
+  cd my-project
+
+6.安装依赖
+  npm install
+
+7.开启热加载（也就是：代码编写保存后，自动编译代码，同时刷新浏览器）
+  npm run dev
+
+//----------------自已手动搭建开发环境------------------------
+1.本地webpack
+npm install webpack webpack-dev-server --save-dev
+
+2.安装webpack编译环境
+npm install babel-core babel-loader babel-preset-es2015 --save-dev
+
+3.安装vue文件编译的vue-loader
+npm install vue-loader --save-dev
+
+4.按照提示安装
+npm install css-loader --save-dev   //编译style
+npm install vue-template-compiler --save-dev   //编译style
+
+5.创建.babelrc文件
+写入  {
+    presets: ["es2015"],
+    plugins: ["transform-runtime"]
+  }
+
+
+npm install babel-plugin-transform-runtime --save-dev
+//----------------------------------------
+var app = new Vue({
+    el:'#app',
+    data:{
+        test1:'hello',
+        liIndex:0,
+        boolVue:true,
+        arr:[
+            {"name":"test1"},
+            {"name":"test4"}
+        ]
+    }
+    methods: {
+        testFun : function(){
+            return 'testFun';
+        },
+        btnAction: function(index){
+            alert(index);
+            this.liIndex = index;
+        }
+    }
+})
+//-------------------------------------------------
+var app = new Vue({
+    el:'#app',
+    data:{},                    //存放数据
+    methods: {},                //存放自定义方法
+    init():function{},          //初始化,数据和方法都未加载
+    created():function{},       //vue实例对象创建完成，数据和方法已经加载
+                                //还没有开始对 DOM 编译
+    beforeCompile():function{}, //开始对dom结构编译前的
+    compiled():function{},
+    ready():function{},         //初始化的业务逻辑一般写在这个方法中
+                                //向服务器发送请求数据
+                                //在dom展示数据
+    beforeDestroy():function{}, //销毁前
+    destroyed():function{}      //已销毁
+})
+
+//--------------指令-------------------------------
+v-text=''          //直接解析数据
+    <p v-text="text"></p>
+    {{ }}和v-text效果是等价
+v-html=''          //以dom结构解析
+    {{{ }}}和v-html效果是等价
+v-show=''          //控制dom结构的显示（display:none）
+v-if=''            //控制dom结构的显示（删除dom结构）
+v-else=''          //要配合v-if一起使用
+v-else-if=''       //
+v-for=''           //遍历
+    v-for="itme in arr"
+    v-for="(itme,val) in arr"
+    v-for="(itme,val,index) in arr"
+    <div v-for="(val, key, index) in obj"></div>
+v-on            //绑定事件
+    <button v-on:click="btnAction">按钮</button>
+    <button @click="btnAction">按钮</button>      【缩写】
+.stop(阻止冒泡)  .prevent(阻止默认行为)
+    <button v-on:click.stop="btnAction">按钮</button>
+$event          //传入event事件
+v-bind          //绑定属性
+    <p v-bind:title="text1">
+    <p :title="text1">          【缩写】
+v-model         //绑定变量在标签的value上
+    <input type="text" v-model="message" />
+v-pre           //不解析{{}}中的值
+    <p v-pre>{{selectVal}}</p>
+v-cloak         //在vue对象还没对这个代码作用时，不显示这个p标签
+    <p v-cloak>{{selectVal}}</p>
+v-once          //只渲染一次
+<p>{{message}}</p>
+
+//-------------------------------------------
+//自定义指令 ( 扩展标签的行为 )
+    Vue.directive('指令的名字', function(){
+        //指令需要做的事情
+    })
+
+//--------------组件-------------------------------
+.extend()
+
+var app = new Vue({
+    el:'#app',
+    data:{
+        test1:'hello',
+        liIndex:0,
+        boolVue:true,
+        arr:[
+            {"name":"test1"},
+            {"name":"test4"}
+        ]
+    }
+})
+
+
+//-------------------ajax----------------------------------
+vue-resource 插件
+    安装npm install vue-resource
+
+get请求：
+this.$http.get('http://10.36.139.41/iappfree/appInfo.php?appid=561692374')
+    .then(function(res){
+        //请求成功
+        console.log(res.status)
+        console.log(res.data)
+
+    }, function(res){
+        //请求失败
+        console.log(res)
+    })
+
+pot请求
+this.$http.post('http://10.36.139.41/test_http/pot_test.php', {
+      id: 111,
+      test1: 'vue',
+      test2:'ffsafds'
+  }, {
+      emulateJSON: true
+  })
+  .then(function(res){
+      请求成功
+  console.log(res.status)
+      console.log(res.data)
+
+  }, function(res){
+      请求失败
+  console.log(res)
+  })
+
+jsonp请求
+this.$http.jsonp(url地址)
+     .then(function(res){
+         //请求成功
+         console.log(res.status)
+         console.log(res.data)
+
+     }, function(res){
+         //请求失败
+         console.log(res)
+         })
+//--------------过滤器-------------
+//自定义过滤器：参数1：过滤器名字
+ Vue.filter('过滤器名字', function(data){
+    var h = Math.floor(data/3600) ;
+    var m = Math.floor(data%3600/60) ;
+    var s = data%60;
+    //将过滤的结果返回
+    return `${h}:${m}:${s}`
+})
+使用：{{time | 过滤器名字}}
+
+//双向绑定过滤器
+//参数1：过滤器名字
+//参数2： json对象，实现read和write方法
+
+Vue.filter('过滤器名字', {
+    //将实例的属性值解析在dom结构上
+    //model-->>view
+    read(val){
+      //在此进行数据处理
+      //将过滤的结果返回
+      return
+    },
+    write(newVal, oldVal){
+      //在此进行数据处理
+      //将过滤的结果返回
+      return
+    }
+  })
+
+
+
+//-------------生命周期--------------------
+init()          //初始化,数据和方法都未加载
+created()       //vue实例对象创建完成，数据和方法已经加载
+                //还没有开始对 DOM 编译
+beforeCompile() //开始对dom结构编译前的
+compiled()
+ready()         //初始化的业务逻辑一般写在这个方法中
+                //向服务器发送请求数据
+                //在dom展示数据
+beforeDestroy() //销毁前
+destroyed()     //已销毁
+
+.$destroy();    //销毁实例
+
+//---------------监听--------------------
+//监听(监听的对象可以是属性，表达式，函数方法，对象)
+  vm.$watch('监听的对象', function(newVal, oldVal){
+  })
+
+例：vm.$watch('obj.name', function(newVal){
+      console.log(newVal)
+    })
+//深度监听
+例：vm.$watch('obj', function(newVal){
+      console.log(newVal)
+    }, {//深度监听，能够监听到对象中内容的变化
+      deep: true
+    })
+
+//-----------------------------------------------
+//过渡的使用
+  //html
+    <div v-show="select" transition="fade"></div>
+  //css
+    .fade-transition{
+      transition: 1s linear;
+    }
+    .fade-enter{/*开始进入的状态*/
+      opacity: 0;
+    }
+    .fade-leave{/*离开完成的状态*/
+      opacity: 0;
+    }

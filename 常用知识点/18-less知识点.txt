@@ -1,0 +1,5 @@
+1.安装less 编译工具
+    $ npm install -g less
+
+2.这将输出编译之后的 CSS 代码到 stdout，你可以将输出重定向到一个文件：
+    $ lessc styles.less > styles.css

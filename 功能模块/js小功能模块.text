@@ -1,0 +1,2 @@
+//==========清除选中==========================
+    window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty();

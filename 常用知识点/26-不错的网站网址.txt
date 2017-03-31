@@ -1,0 +1,35 @@
+//------------------------------------------------------
+fiddler                                             //抓包工具
+Charles                                             //抓包工具
+
+
+http://www.iconfont.cn/collections?personal=1       //阿里妈妈图标库网址（旧版）
+http://www.iconfont.cn/                             //阿里妈妈图标库网址（新版）
+www.swiper.com.cn                                   //swiper官网
+    多页切换
+https://github.com/madrobby/zepto                   //zepto官网
+    轻量级的JQ
+http://wiki.jikexueyuan.com/project/iscroll-5/      //iscroll资料
+http://ionicframework.com/getting-started/          //angularJS官网
+http://www.dcloud.io/                               //MUI官网
+    可以实现原生App的很多功能
+https://cn.vuejs.org/                               //vue官网
+https://github.com/                                 //github官网
+https://github.com/huangweilinag                    //我的github
+https://open.weixin.qq.com/                         //微信开放平台
+    微信分享、登录、支付等功能
+https://mp.weixin.qq.com/                           //微信公众平台官网
+    微信订阅号、服务号、小程序
+https://cloud.baidu.com/                            //百度开放云官网
+    百度云服务器（最低0.2元每天）
+http://www.lthack.com/                              //龙天论坛
+    学习资料比较全
+https://browsersync.io/                             //browsersync官网
+    浏览器同步工具
+http://www.lanrenzhijia.com/                        //懒人之家官网
+    里面有很多不错的原代码
+http://www.oschina.net/                             //开源中国社区
+    里面有很多IT开发资料，原代码，开发工具
+http://element.eleme.io/#/zh-CN                     //vue UI组件 （element）
+http://mint-ui.github.io/docs/#!/zh-cn2             //vue UI组件 （Mint UI）
+

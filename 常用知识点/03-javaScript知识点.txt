@@ -1,0 +1,377 @@
+2.============获取节点=====================
+    .getElementsByClassName();      //所有的类名的对象，返回一个数组  ie 678 不可用
+    .getElementsByTagName();        //获得所有标签名元素，返回一个数组
+    .getElementById();              //获得id元素
+    .querySelector()
+;----------------------------------
+    .parentNode;                     //获得父元素
+    .parentElement                   //
+    .nextSibling;                    //获得下一个兄弟     ie 678可用
+    .nextElementSibling;             //获得下一个兄弟     ie 678不可用
+    .previousSibling;                //获得上一个兄弟     ie 678 可用
+    .previousElementSibling;         //获得上一个兄弟     ie 678 不可用
+    .firstChild;                     //获得第一个亲儿子   ie 678可用
+    .firstElementChild;              //获得第一个亲儿子   ie 678不可用
+    .lastChild;                      //获得最后一个亲儿子 ie 678可用
+    .lastElementChild;               //获得最后一个亲儿子 ie 678不可用
+    .childNodes;                     //获得所有孩子节点 (也可以获得文本、换行)
+    .children;                       //返回指定元素的子元素集合(ie 678也可以获得注释节点)
+    .attributes                      //返回该元素节点的属性节点集合
+    .ownerDocument                   //返回该节点的文档对象根节点，返回的对象相当于document
+
+
+3.============节点操作=============================
+    .createElement();       //创建一个新的节点
+    .createTextNode()       //创建一个文件节点
+    .appendChild();         //添加节点   参数：要插入的元素节点
+    .insertBefore();        //在元素之前插入节点  参数1：要插入的元素  2：参考元素
+    .getAttribute();        //获取属性值 返回指定属性名的属性值      ie67不支持
+    .getAttributeNode()     //从当前元素中通过名称获取属性节点。
+    .setAttribute();        //设置属性值   ie67不支持
+    setAttributeNode()      //向元素中添加指定的属性节点。
+    .removeAttribute();     //删除某个属性  ie67不支持
+    .removeChild();         //删除节点 参数:要删除的元素
+    .cloneNode(true);       //克隆节点--深复制
+    .cloneNode(false);      //        --浅复制
+    .write()                //这个方法可以把任意字符串插入到文档中
+    .repalceChild()         //将新节点替换旧节点
+    .deleteRow()            //table 删除行 参数：tr.rowIndex
+
+
+4.============元素节点属性=====================可读写
+    .style                  //CSS内联样式属性值
+    .style[]                //设置css样式, 参数：属性名或变量
+    .style.cssText +=       //设置多个Css属性
+    .value                  //获取input 文本框值
+    .tagName                //获取元素节点的标签名
+    .innerHTML              //获取元素节点里的内容
+    .outerHTML              //设置或获取对象及其内容的 HTML 形式
+    .innerText              //设置或获取位于对象起始和结束标签内的文本
+    .outerText              //设置(包括标签)或获取(不包括标签)对象的文本
+    .id                     //元素节点的id名称
+    .title                  //元素节点的title 属性值
+    .className              //CSS元素的类
+;------------------------------------------
+    节点类型    .nodeName       .nodeType   .nodeValue
+      元素       元素名称         1            null
+      属性       属性名称         2            属性值
+     文本          文本           3         文本内容（不包含html）
+
+
+5.============打印输出=====================
+    console.log();          //控制台输出正常语句
+    console.warn();         //控制台警示框
+    console.error();        //控制台错误提示
+    document.write();       //文档打印
+    confirm();              //带取消按钮的弹出框，  返回true(确认) false(取消)
+    alert();                //弹出框
+
+
+6.============事件=====================
+    .onclick=               //鼠标单击
+    .ondblclick=            //鼠标双击
+    .onmouseover=           //鼠标移入，即鼠标停留在图片等的上方
+    .onmouseout=            //鼠标移出，即离开图片等所在的区域
+    .onmousemove            //鼠标移动事件
+    .onmouseenter           //鼠标移入
+    .onmouseleave           //鼠标移出
+    .onmousedown            //鼠标按下
+    .onmouseup              //鼠标弹起
+
+    .onkeydown =            //键盘上的某个键按下时触发
+    .onkeyup =              //松开键盘上的某个键时触发
+    .onkeypress =           //字符健按下
+    .onselect =             //选中输入框的内容时触发
+    .onchange=              //文本内容或下拉菜单中的选项发生改变，失去焦点时触发
+    .onfocus=               //获得焦点，表示文本框等获得鼠标光标。
+    .onblur=                //失去焦点，表示文本框等失去鼠标光标。
+    .onsubmit=              //表单提交事件
+    .onreset=               //重置表单时
+    .onload=                //页面加载完成自动调用
+    .onunload=              //关闭网页时
+    .onresize=              //窗口改变事件
+    .onscroll =             //滚动事件
+
+---------------监听事件--------------------
+    对象.addEventListener("click",fun1,false);     //添加监听器 false(冒泡) true(捕获)
+    对象.removeEventListener("click",fun1);        //移除监听器
+
+7.============内置对象=====================
+    Arguments               //函数对数集合
+    Array                   //数组
+    Boolean                 //布尔对象
+    Date                    //日期时间
+    error                   //异常对象
+    Function                //函数构造器
+    Math                    //数学对象
+    Number                  //数值对象
+    Object                  //基础对象
+    RegExp                  //正则表达式对象
+    String                  //字符串对象
+
+8.============数组操作=====================
+    .push();                //添加一个元素到最后面，返回数组长度
+    .unshift();             //添加一个元素到最前面，返回数组长度
+    .pop();                 //删除最后一个，返回被删除的元素
+    .shift();               //删除最前一个，返回被删除的元素
+    .concat();              //连接数组，返回新的数组，原来的数组不发生改变
+    .join();                //将数组转换成字符串，参数为连接符
+    .split();               //将字符串转换为数组
+    .reverse();             //数组逆序，改变原来数组
+    .sort();                //排序  参数：提供一个比较规划，1交换，0不交换
+    .slice()                //截取数组(参数:1截取位置<必须>，2终结点)，返回新数组
+    .splice();              //截取数组(参数:1截取位置<必须>，2长度)，改变原来数组
+    .splice();              //另外一个用法,(参数:1起始下标 2:增加<0> 删除<1> 3:值)
+
+9.============字符串操作=====================
+    String()                //构造函数法转换为字符串
+    toString()              //内置转换法，(参数：进制基数)
+    .length                 //表示字符串的长度
+    .charAt()               //获取相应位置字符（参数：字符位置）
+    .charCodeAt()           //获取相应位置字符编码(参数：字符位置)
+    .fromCharCode()         //给一个字符编符，获取相应的字符串
+    .indexOf()              //从前向后索引字符串位置(参数：索引字符串)找不到返回-1
+    .lastIndexOf()          //从后向前索引字符串位置（参数：索引字符串）找不到返回-1
+    .search()               //从前向后索引字符串位置(参数：正则表达式)
+    .startsWith(String)     //确定此字符串实例的开头是否与指定的字符串匹配。
+    .concat()               //连接字符 返回一个新字符串
+    .slice()                //截取字符串(参数:1截取位置<必须>，2终结点)
+    .substring()            //同slice,但有参数比较大小，自动转成第一个小，第二个大
+    .substr()               //截取字符串（参数:1.截取位置<必须>，2.截取长度）
+    .toFixed()              //转成小数（参数：小数的位数）
+    .toUpperCase()          //转换为大写
+    .toLowerCase()          //转换为小写
+    .replace()              //替换，参数： 1：替换的字符串<可以是正则表达式>， 2：替换的新的值
+    .split()                //分割，参数：1：分割符 2：最大长度 返回：一个数组
+    .sub()                  //把字符串显示为下标
+    .sup()                  //把字符串显示为上标
+    encodeURIComponent()    //url编码
+    decodeURIComponent()    //url解码
+
+10.============Math对象方法=====================
+    .abs(x)          //返回数的绝对值
+    .acos(x)         //返回数的反余弦值
+    .asin(x)         //返回数的反正弦值
+    .atan(x)         //以介于 -PI/2 与 PI/2 弧度之间的数值来返回 x 的反正切值
+    .atan2(y,x)     //返回从 x 轴到点 (x,y) 的角度（介于 -PI/2 与 PI/2 弧度之间）
+    .ceil(x)        //对数进行上舍入
+    .cos(x)         //返回数的余弦
+    .exp(x)         //返回 e 的指数
+    .floor(x)       //对数进行下舍入
+    .log(x)         //返回数的自然对数（底为e）
+    .max(x,y)       //返回 x 和 y 中的最高值
+    .min(x,y)       //返回 x 和 y 中的最低值
+    .pow(x,y)       //返回 x 的 y 次幂
+    .random()       //返回 0 ~ 1 之间的随机数
+    .round(x)       //把数四舍五入为最接近的整数
+    .sin(x)         //返回数的正弦
+    .sqrt(x)        //返回数的平方根
+    .tan(x)         //返回角的正切
+    .toSource()     //返回该对象的源代码
+    .valueOf()      //返回 Math 对象的原始值
+
+
+12.============xxxxxxxx====================
+    arguments.callee    //返回正被执行的函数体
+
+13.============window对象事件=====================
+    onload              //页面加载完成自动执行
+    confirm();          //带取消按钮的弹出框，  返回true(确认) false(取消)
+    alert();            //弹出框
+    print();            //调出打印对话框
+    prompt();
+    open();             //打开一个新窗口
+    close();            //关闭窗口
+    onscroll()          //检测屏幕滚动了
+    location            //访问的网址信息
+//-----------------定时器-----------------------
+    setInterval(函数,定时时间)；        //间隔定时器
+    setTimeout(函数,定时时间);          //一次性定时器
+    clearInterval(定时器的名字);        //停止间隔定时器
+    clearTimeout(定时器的名字);         //停止倒计时定时器
+
+14.============滚动事件=====================
+    onscroll()          //检测屏幕滚动了
+    scrollTop           //网页隐藏在屏幕上方的距离
+    scrollLeft          //网页隐藏在屏幕上左方的距离
+    .scrollTo();        //把内容滚动到指定的坐标。参数1：必需。要在窗口文档显示区左上角显示的文档的 x 坐标。2：必需。要在窗口文档显示区左上角显示的文档的 y 坐标。
+
+
+15.============Location对象=====================
+    location            //访问的网址信息
+        .hash           //如果该部分存在，表示锚点部分
+        .host           //主机名:端口号
+        .hostname       //主机名
+        .href           //整个URL
+        .pathname       //路径名
+        .port           //端口号
+        .protocol       //协议部分
+        .search         //查询字符串
+        assign()        //跳转到指定页面，与href等效
+        reload()        //重载当前URL   参数：true 从服务器加载  false 从缓存加载
+        repalce()       //用新的URL替换当前页面
+
+        //跳转页面 方法一
+        //location.href = "http://www.baidu.com";
+        //跳转页面 方法二
+        //location.assign("http://www.baidu.com");
+        //跳转页面 方法三  (不能返回)
+         location.replace("http://www.baidu.com");
+16.============.location.href 用法=====================
+    top.location.href="url"        //在顶层页面打开url（跳出框架）
+　　self.location.href="url"       //仅在本页面打开url地址
+　　parent.location.href="url"     //在父窗口打开Url地址
+　　this.location.href="url"  　　 //用法和self的用法一致
+
+17.============history对象=====================
+    .length         //history对象中的记录数
+    .back()         //前往浏览器历史条目前一个URL，类似后退
+    .forward()      //前往浏览器历史条目下一个URL，类似前进
+    .gr()           //浏览器在history对象中向前或向后 参数：-1代表后退 1代表向前  0表示刷新当前页面
+
+18.============event 对象事件=====================
+    .data       //返回拖拽对象的URL字符串
+    .width      //该窗口或框架的宽度
+    .height     //该窗口或框架的高度
+    .pageX      //光标相对于该网页的水平位置(ie无)
+    .pageY      //光标相对于该网页的垂直位置(ie无)
+    .screenX    //光标相对于屏幕的水平位置
+    .screenY    //光标相对于屏幕的垂直位置
+    .target     //该事件被传送到的对象
+    .type       //事件的类型
+    .clientX    //光标相对于该网页的水平位置（当前可见区域）
+    .clientY    //光标相对于该网页的垂直位置（当前可见区域）
+    .offsetX    //相对目标元素左边界的距离
+    .offsetY    //相对目标元素上边界的距离
+；---------------------------------
+    .button     //左键0  轮滚1  右键2
+    .which      //左键1  轮滚2  右键3
+    .shiftKey   //判断是否按下了Shift键
+    .ctrlKey    //判断是否按下了ctrlKey键
+    .altKey     //判断是否按下了alt键
+    .metaKey    //判断是否按下了windows键，IE不支持
+    .keyCode    //键码
+    .charCode   //字符编码
+
+19.============client 家族=====================
+    .offsetParent       //参考系偏移的父节点
+    .offsetLeft         //当前无素左边距离offsetParent的左面的间距
+    .offsetTop          //当前无素上边距离offsetParent的上面的间距
+    .offsetWidth        //自身宽度
+    .offsetHeight       //自身高度
+    clientWidth         //width  +  padding   不包含border
+    clientHeight        //可视区域的高度
+    scrollWidth         //width  +  padding   不包含边框   大小是内容的大小()
+    scrollHeight        //实际内容大小的高度
+    client              //可视区域
+
+    document.body.clientWidth               ==> BODY对象宽度
+    document.body.clientHeight              ==> BODY对象高度
+    document.documentElement.clientWidth    ==> 可见区域宽度
+    document.documentElement.clientHeight   ==> 可见区域高度
+
+    window.screen.width     电脑的屏幕分辨率
+    window.screen.height
+
+20.============小功能=====================
+    //阻止右键菜单
+        document.oncontextmenu = function(){
+            return false;
+        }
+    //阻止浏览器默认行为
+        var evt = e || event;
+        evt.preventDefault();
+
+22.============正则表达式=====================
+    new RegExp()                    //创建正则表达式 参数：1.非空字符串 2.模式修饰符
+    /box/                           //创建正则表达式 字面量方式
+    正则表达式.test(字符串)         //匹配字符串 返回true则符合,false则不符合
+    正则表达式.exec(字符串)         //匹配字符串 返回数组则符合，null则不符合
+    字符串.match(正则表达式)        //返回数组或null
+    字符串.replace(正则表达式,字符串)   //查找并替换
+    字符串.search(正则表达式)       //查找并返回匹配字符串的起始位置，否则返回-1
+    字符串.split(正则表达式)        //返回拆分后的数组
+
+    g       //表示全局匹配
+    i       //表示忽略大小写
+    m       //换行
+    .       //代表除了换行之处的所有单个字符
+    *       //允许其他字符出现任意多次
+    []      //表示字符可以出现的范围
+    ^       //非字符
+    +       //表示至少出现1次
+    \w      //等价于[a-zA-Z0-9_]
+    \d      //代表数字，等价于[0-9]
+    \D      //匹配非数字，相当于[^0-9]
+    \D{7,}  //匹配至少7个非数字，相当于[^0-9]{7,}
+    /^      //匹配开始，从头开始匹配
+    $/      //匹配结尾，从结尾开始匹配
+    \s      //匹配空格
+    \b      //可以匹配是否到了边界
+    ｜      //代表或者的意思，匹配其中一种字符串
+    ()      //分组模式匹配
+    \       //转义字符
+
+//==================================================
+//构造函数、原型、继承、对象冒充
+//js
+//-------------------------------------------------
+    构造函数
+    function Dog(){
+        this.color = "red";
+        this.age = 5;
+        this.run = function(){
+            console.log("这条狗跑了");
+        }
+    }
+
+    创建对象
+    var dog1 = new Dog();
+//-------------------------------------------------
+    原型
+    Dog.prototype.name = "旺财";
+    Dog.prototype.eat = function(){
+        console.log("吃了东西");
+    }
+
+    //-----------------------
+    constructor     //是原型对象的一个属性，指向原型对象所属的构造函数
+    __proto__       //是实例对象指向原型对象的一个指针，它的作用就是指缶构造函数的原型
+    isPrototypeOf() //判断一个对象是否指向了该构造函数的原型对象
+
+//-------------------------------------------------
+    继承
+    原型链继承   (只能实现单继承)
+    子类.prototype = new 父类();
+    GarfielaCat.prototype = new Dog();
+
+    对象冒充继承 (可以实现多继承)
+    父类.call(this, 参数1,参数2);
+    Dog.call(this, _name1, _age1);
+
+    父类.apply(this, [参数1, 参数2]);
+    Dog.apply(this, [_name1, _age1]);
+
+    父类.prototype.方法.call(this, 参数1,参数2);
+    DragBoxLimit.prototype.moving.call(this, x, y);
+
+//-----------------------------------
+    //查找name属性的过程:
+    //1, 先查找Manager构造函数中有没有该属性, 发现没有, 然后去查找Manager原型
+    //2, Manager原型就是Employee对象, 然后会查找Employee构造函数中有没有name, 发现没有;
+    //3, 然后继续查找Employee原型中是否有name属性, Employee原型就是person对象;
+    //4, person对象会查找Person构造函数中是否有name属性, 发现有,所以使用的其实是继承自Person构造函数的name属性值;
+
+
+//=======================================
+    delete              //删除对象
+    JSON.parse()        //json解析    参数：JSON字符串
+    JSON.stringify()    //json序例化  参数：数组或对象
+
+//=================在地址栏上传递参数========================
+<a href='其他页面地址？参数名=参数值'>进入商品详情</a>
+    例：<a href='../goodsDetails/goodsDetails.html?goodeId=" +data.goodId + "'" +"></a>
+//获得地址
+var goodsId = location.search;
+//对地址进行分割，取得传入的数据
+goodsId = goodsId.split("=")[1];

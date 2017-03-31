@@ -1,0 +1,11 @@
+1.只使用JQuery是只需要引入jquery-1.12.3.js
+
+
+2.需要使用cookie时要引入下面两个，而且先后顺序不能后
+    jquery-1.12.3.js
+    jquery.cookie.js
+
+3.项目正式上线时引入已压缩过的
+
+4.使用命令行下载jquery文件
+    npm install jquery

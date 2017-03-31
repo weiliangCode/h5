@@ -1,0 +1,66 @@
+//需要引入这两个文件包
+ionic.css
+ionic.bundle.js
+
+//----------------html---------------------------------
+
+<div class="bar bar-header"><h1 class="title">bar-light</h1></div>  //头部
+<div class="bar bar-footer 颜色">内容 </div>                        //底部
+<button class="button ">按钮</button>                               //按钮
+//------------------
+//导航容器
+<ion-nav-view></ion-nav-view>                       //页面中只有一个
+<ion-nav-view name="tab-order"></ion-nav-view>      //页面中有多个，通过name来区分
+
+//----------------js---------------------------------
+var app = angular.module('myApp', ['ionic']);
+
+//init 配置方法
+app.config(['$stateProvider','$urlRouterProvider',function($stateProvider,$urlRouterProvider) {
+
+    $stateProvider
+    //方式一（页面中只有一个ion-nav-view）
+    .state('tabs', {
+        url: '/tabs',
+        templateUrl: 'html/tabs.html'
+    })
+    //方式二（页面中有多个ion-nav-view）
+    .state('tabs.main', {//配置项名
+        url: '/main',   //路径
+        views:{
+            'tab-main': {  //在tabs中有多个ion-nav-view，这个应该放在哪个之中
+                templateUrl: 'views/main/main.html' //模板页面
+            }
+        }
+    })
+    //其他情况重定向
+    $urlRouterProvider.otherwise('/tabs');
+}]);
+$stateProvider          //
+$urlRouterProvider      //
+
+//------------------------------------
+//创建控制器  参数1:控制器名字  参数2:控制器的构造方法
+app.controller('mainCtrl', ['$scope', '$state', '$location', '$ionicNavBarDelegate',  function($scope, $state, $location, $ionicNavBarDelegate){
+
+    $scope.itemAction = function(){
+        $location.path('/detail');
+    }
+    $scope.nextAction = function(){
+        // 通过$state的方式跳转到配置项名字为detail的页面
+        $state.go('detail');
+    }
+    $scope.data = [1,2,3,4];
+    $scope.$on('$ionicView.loaded', function(){
+        console.log('main $ionicView.loaded----加载');
+    })
+}])
+$scope
+$scope.$on             //绑定事件
+    $ionicView.loaded  //加载
+    $ionicView.enter   //进入
+    $ionicView.leave   //离开
+
+$ionicNavBarDelegate   //可操作整个导航结构的Angularjs提供的对象
+$location
+$state

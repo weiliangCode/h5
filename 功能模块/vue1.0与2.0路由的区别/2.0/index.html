@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>2.0vue路由</title>
+		<script src="vue.js"></script>
+		<script src="vue-router.js"></script>
+		
+	</head>
+	<body>
+		<div id="app">
+			<router-link to="/main">主页</router-link>
+			<router-link to="/hot">热门</router-link>
+			<router-view></router-view>
+		</div>
+		
+		
+		<!----------这是分割线----------->
+		<template id="main">
+			<h1>主页</h1>
+		</template>
+		
+		<template id="hot">
+			<h1>热门</h1>
+		</template>
+		
+		
+		<script>
+			//创建组件(路由用到什么组件，就使用什么组件)
+			var mainCom = {
+				template: '#main'
+			}
+			var hotCom = {
+				template: '#hot'
+			}
+			
+			//定义路由的方式
+			var routerConfig = [
+				//配置路由
+				{
+					path: '/main',
+					component: mainCom,
+					data(){
+						return{
+							
+						}
+					}
+				},
+				{path: '/hot', component: hotCom},
+				//设置重定向
+				{path: '*', redirect: '/main'}
+			];
+			
+			
+			//创建路由
+			var router = new VueRouter({routes: routerConfig});//传入配置路由的数组对象
+			
+			//启动路由
+			new Vue({
+				router: router,
+				el: '#app'
+			})
+			
+			//传参方式不变。
+			
+			//将2.0路由方式用模块化完成	
+		</script>
+
+	</body>
+</html>

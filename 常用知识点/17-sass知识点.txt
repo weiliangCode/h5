@@ -1,0 +1,90 @@
+http://www.ruanyifeng.com/blog/2012/06/sass.html        //不错的入门教程
+http://rubyinstaller.org/downloads                      //下载ruby官网地址
+
+
+1.SASS是Ruby语言写的，但是两者的语法没有关系。不懂Ruby，照样使用。只是必须先安装Ruby，然后再安装SASS。
+
+2.安装sass，在ruby的命令窗口中执行
+    gem install sass
+
+3.编译scss文件，并保存为css文件
+    sass scss文件名 生成新的css文件名
+    例：sass test.scss test.css
+
+
+
+4.提供四种编码的方式
+　　* nested：嵌套缩进的css代码，它是默认值。
+　　* expanded：没有缩进的、扩展的css代码。
+　　* compact：简洁格式的css代码。
+　　* compressed：压缩后的css代码。
+
+    例：sass --style compressed test.sass test.css
+
+5.你也可以让SASS监听某个文件或目录，一旦源文件有变动，就自动生成编译后的版本。
+　　// watch a file
+　　sass --watch input.scss:output.css
+　　// watch a directory
+　　sass --watch app/sass:public/stylesheets
+
+//======================基本用法===================================
+SASS允许使用变量，所有变量以$开头。
+    例：$blue : #1875e7;　
+        $side : left
+如果变量需要镶嵌在字符串之中，就必须需要写在#{}之中。
+    例：border-#{$side}: 5px solie red;
+计算：
+　body {
+　　　　margin: (14px/2);
+　　　　top: 50px + 100px;
+　　　　right: $var * 10%;
+　　}
+嵌套:
+    例：
+    div h1 {
+　　　　color : red;
+　　}
+
+    可以写成：
+    div {
+    　　　　hi {
+    　　　　　　color:red;
+    　　　　}
+    　　}
+
+SASS允许一个选择器，继承另一个选择器
+    .class1 {
+　　　　border: 1px solid #ddd;
+　　}
+class2要继承class1，就要使用@extend命令：
+　 .class2 {
+　　　　@extend .class1;
+　　　　font-size:120%;
+　　}
+
+//-------------------宏-------------------------------
+Mixin有点像C语言的宏（macro），是可以重用的代码块。
+使用@mixin命令，定义一个代码块。
+    @mixin left {
+　　　　float: left;
+　　　　margin-left: 10px;
+　　}
+使用@include命令，调用这个mixin
+　div {
+　　　　@include left;
+　　}
+mixin的强大之处，在于可以指定参数和缺省值
+    @mixin left($value: 10px) {
+　　　　float: left;
+　　　　margin-right: $value;
+　　}
+使用的时候，根据需要加入参数：
+    div {
+　　　　@include left(20px);
+　　}
+//-------------- 插入文件-------------------------
+@import命令，用来插入外部文件
+
+
+
+

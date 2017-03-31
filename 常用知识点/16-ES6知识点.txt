@@ -1,0 +1,160 @@
+'use strict'      //使用严格模式
+let     //1.关键字，声明变量
+        //2.let不可以预解析
+        //3.不可以重复声明
+        //4.用代码块划分作用域  代码块用{}定义
+---实例：let b = 1;
+const   //定义常量
+        //防止之后错误修改
+        //防止命名冲突
+        //定义的变量不能被告修改
+        //常量如果是对象，对象的属性可以修改
+//---------------数组的解构--------
+//通过对应的下标查找,解构赋值允许指定默认值
+var arr = [1,2,3];
+var [a,b,c] = arr;
+console.log(a,b,c);  //1,2,3
+
+var arr1 = [1,2, [3,4,5, [6]]];
+var [a,b,[c,d,e,[f]]] = arr1;
+console.log(a,b,c,d,e,f);   //1 2 3 4 5 6
+//---------------对象的解构---------
+//通过key值查找
+var obj = {
+        num: 1,
+        str: 'fasdfad',
+        bool: true,
+        fun: function(){
+            console.log(111111111)
+        }
+    }
+var {num, str, bool, fun} = obj;
+
+function test(){
+        var a = 1;
+        var str = 'fasdfa';
+        return {a, str}
+    }
+var {a,str} = test();
+console.log(a)      //1
+console.log(str)    //fasdfa
+//---------------字符串的解构---------
+const [a,b,c,d,e] = 'hello';
+    a //"h", b //"e", c //"l", d //"l", e //"o"
+let {length : len} = 'hello';
+    len    //5
+
+
+//--------------------------------------
+//使用模板字符串,内容需要用“`”（反引号）包裹，插值需要用${js的表达式}
+var obj = {
+        name : 'zhangsan',
+        age : 44
+    }
+console.log(`我的名字：${obj.name}年龄：${obj.age+6}`);
+我的名字：zhangsan年龄：50
+//---------------------------------------
+//字符的Unicode表示法 只限于\u0000——\uFFFF之间的字符
+字符串.includes()    //判断字符串是否包含字符串
+字符串.startsWith()   //是否包括前缀
+字符串.endsWith()     //是否包括后缀
+字符串.repeat(循环次数)
+    var str = '千峰';
+    console.log( str.repeat(3) );     //千峰千峰千峰
+
+//---------------------------------------
+//HTMLCollection 类数组集合
+var arr = Array.from(类数组);   //将类数组对象转为数组
+var arr3 = Array.of(5);    //初始化数组，长度为1，值为5
+var arr3 = Array.of(1,2,3,4,5);     //1,2,3,4,5
+Array.from('qianfeng');     //["q", "i", "a", "n", "f", "e", "n", "g"]
+数组.find(要查找的值)  //
+数组.fill('a', 2, 4);     //参数1：填充的内容,参数2：开始的填充位置,参数3：结束的填充位置(不包含结束位置)
+for-of 数值遍历的是value值，不能遍历对象
+
+//--------------对象合并--------------------------
+//将assign方法中对象的所有属性都给了第一个对象，并且出现重复，则取最后的值
+//将三个对象合并为一个对象
+Object.assign(obj, obj1, obj2)
+
+Object.is()     //传入两个参数，判断是否相等
+                //0与-0不等
+                //NaN与NaN相等
+
+//---------箭头函数--------------------------
+//var 函数名 = (参数列表) => {函数体};
+//该函数不能用new关键字，即不能做为构造函数。
+//作为回调使用
+//this指向：定义时指向谁就是谁
+//函数中没有arguments
+//箭头并不是替换已有的函数结构，
+例：
+    var fun = a => a++;
+    等价：
+    var fun = function(a){
+        return a++;
+    }
+
+//--------类的使用-------------------------------
+//定义类
+    class Person{
+        //构造函数
+        constructor(name){
+            console.log('Person init');
+            this.name = name;
+        }
+        //这个类的方法
+        say(){
+            console.log('this is say function');
+            console.log(this.name)
+        }
+    }
+
+//根据person类创建对象
+    var xiaoming = new Person('xiaoming');
+    xiaoming.say();
+
+//继承extends
+    class Dog extends Person{
+        //构造函数
+        constructor(name){
+            //执行父类的构造函数
+            super(name);
+        }
+        //覆盖了父类的方法
+        walk(){
+            console.log(`${this.name}在跑步.....`);
+        }
+        //继承父类的功能，又要有自己的功能
+        say(){
+            //super在方法中是执行父类的该方法
+            //super在构造方法中是执行父类的该构造方法
+            super.say();
+            console.log('wang..wang...');
+        }
+    }
+
+//--------------------promise---------------------------------
+//创建promise对象
+    var pro = new Promise(function(resolve, reject){//promise的内容
+        //resolve 表示执行成功的回调
+        //reject  表示执行失败的回调
+        setTimeout(function(){
+            console.log('执行代码。。。。');
+            //成功
+            reject();
+        }, 1000)
+    });
+
+    pro.then(
+        //成功回调
+        function(){
+            console.log('成功');
+        },
+        //失败的回调
+        function(){
+            console.log('失败');
+        }
+    );
+
+

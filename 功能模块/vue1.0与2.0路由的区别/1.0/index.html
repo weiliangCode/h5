@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>1.0vue路由</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link type="text/css" rel="stylesheet" href="style.css" />
+		<script src="vue.js"></script>
+		<script src="vue-router.js"></script>
+	</head>
+	<body>
+		<nav class="tabs">
+			<a v-link="{path: '/main'}">首页</a>
+			<a v-link="{path: '/hot'}">热门</a>
+			<a>设置</a>
+		</nav>
+		
+		<div class="content">
+			<!-- 装路由组件的内容 -->
+			<router-view></router-view>
+			
+		</div>
+		
+		<!-----------------这是分割线--------------------->
+		<template id="main">
+			<h1>
+				<span>主页</span>
+				<button class="main-header-btn">
+					<a v-link="{path: '/main/description'}">说明</a>
+				</button>
+			</h1>
+			<router-view></router-view>
+		</template>	
+		
+		<!-----------------这是分割线--------------------->
+		<template id="hot">
+			<h1>热门</h1>
+		</template>	
+		<!-----------------这是分割线--------------------->
+		
+		<template id="description">
+			<div class="description-content">
+			<h1>说明</h1>
+			</div>
+		</template>	
+		
+		<!-----------------这是分割线--------------------->
+		
+		
+
+		
+		
+		<script>
+			//1.准备根组件
+			var App = Vue.extend();
+			
+			//2.准备路由需要使用的组件
+			var mainCom = Vue.extend({
+				template: "#main",
+				data(){
+					return {
+						arr: [1,2,3,4,5,6,7]
+					}
+				}
+			})
+			
+			var detailCom = Vue.extend({
+				template: "#detail"
+			})
+			
+			var descriptionCom = Vue.extend({
+				template: "#description"
+			})
+			
+			var hotCom = Vue.extend({
+				template: "#hot"
+			})
+			
+			//创建路由
+			var router = new VueRouter();
+			
+			//配置路由
+			router.map({
+				//路由路径名
+				'/main': {
+					//组件
+					component: mainCom,
+					subRoutes: {
+						'/description': {
+							component: descriptionCom
+						}
+					}
+				},
+				'/hot': {
+					//组件
+					component: hotCom
+				}
+			});
+			
+			//设置重定向
+			router.redirect({
+				'/': '/main'
+			})
+			
+			//启动路由
+			router.start(App, 'body');
+		</script>
+	</body>
+</html>

@@ -1,0 +1,112 @@
+1.打开或新建一个专门打包项目的文件夹
+2.把项目文件拷贝到这个文件夹中
+3.在命令行中找开这个文件夹
+    D:              //切换盘
+    cd 路径         //切换路径
+4.在命令行中执行
+    npm init        //创建package.json文件
+5.安装gulp文件
+    npm install gulp --save -dev            //根据json安装对应的gulp
+    npm install gulp-concat  --save -dev    //安装合并文件插件
+    npm install gulp-uglify --save -dev     //安装JS压缩插件
+    npm install gulp-minify-css --save -dev //安装CSS压缩插件
+    npm install gulp-rename --save -dev     //安装重命名插件
+    npm install gulp-imagesmin --save -dev  //安装图片压缩插件
+    npm install gulp-htmlmin --save -dev    //安装html压缩插件
+    npm install gulp-webserver --save -dev  //安装创建本地服务器
+6.创建一个文件gulpfile.js (文件名不能改)
+
+7.在gulpfile.js中编写自动压缩文件代码
+//=====================================================================
+
+var gulp = require('gulp');                 //引入gulp组件
+var webserver = require('gulp-webserver');  //引入webserver组件
+var uglify = require('gulp-uglify');        //引入js混淆压缩
+var minifyCss = require('gulp-minify-css'); //引入压缩css
+var concat = require('gulp-concat');        //引入合并文件
+var rename = require('gulp-rename');        //引入重命名
+
+
+//创建任务开启服务
+gulp.task('start-server', function(){
+    gulp.src('./')              //获得项目资源
+    .pipe(webserver({
+        livereload: true,
+        directoryListing: {
+            enable: true,
+            path: './'
+        },
+        port: 80,
+        host: '10.36.139.49'
+    }));
+})
+
+//拷贝index
+gulp.task('copy-index', function(){
+    gulp.src('eleApp/index.html')       //获得资源
+    .pipe(gulp.dest('eleAppPro'));      //拷贝到指定位置
+})
+
+//拷贝不压缩文件
+gulp.task('copy-files', function(){
+    //拷贝图片
+    gulp.src('eleApp/img/*')
+    .pipe(gulp.dest('eleAppPro/img'));
+
+    gulp.src('eleApp/fonts/*')
+    .pipe(gulp.dest('eleAppPro/fonts'));
+
+    //拷贝资源包
+    gulp.src('eleApp/lib/**/*')
+    .pipe(gulp.dest('eleAppPro/lib'));
+
+    //拷贝views
+    gulp.src('eleApp/views/**/*')
+    .pipe(gulp.dest('eleAppPro/views'));
+})
+
+//处理css
+gulp.task('handle-css', function(){
+    //得到所有的css文件
+    gulp.src('eleApp/css/**/*.css')
+    //合并
+    .pipe(concat('style.css'))
+    .pipe(gulp.dest('eleAppPro/css'))
+    //压缩
+    .pipe(minifyCss())
+    //重命名
+    .pipe(rename('style.min.css'))
+    //保存
+    .pipe(gulp.dest('eleAppPro/css'));
+
+})
+
+//处理js
+gulp.task('handle-js', function(){
+    gulp.src('eleApp/javascript/**/*.js')
+    //合并
+    .pipe(concat('bundle.js'))
+    .pipe(gulp.dest('eleAppPro/javascript'))
+    //混淆压缩
+    .pipe(uglify())
+    //重命名
+    .pipe(rename('bundle.min.js'))
+    //保存
+    .pipe(gulp.dest('eleAppPro/javascript'));
+
+})
+
+//默认任务
+gulp.task('default', ['copy-files', 'handle-css', 'handle-js', 'start-server'],  function(){
+    console.log('所有任务执行完毕');
+})
+//=====================================================================
+8.在命令行中执行
+    gulp copy-index         //拷贝index文件
+9.在命令行中执行
+    gulp                    //拷贝和压缩文件
+10.在index中修改文件引入的路径，全部换成压缩后的文件
+11.SVN同步远程服务器
+    1>在所在的文件夹右键打开 SVN Checkout
+    2>URL of repository 填写服务器后台管理地址
+12.把新生成的文件上传到远程服务器中

@@ -1,0 +1,6 @@
+1.只使用angular功能里只需引入
+    angular.js
+
+2.使用ionic功能时需要引入
+    ionic/css/ionic.css
+    ionic/js/ionic.bundle.js

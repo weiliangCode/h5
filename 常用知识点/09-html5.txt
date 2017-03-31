@@ -1,0 +1,107 @@
+//========WEB  Storage==================================
+localStorage    //为永久保存
+    localStorage.setItem(key,value)     //存储
+    localStorage.getItem(key)           //获取
+    localStorage.removeItem(key)        //删除
+    localStorage.clear()                //全部清除
+    localStorage.length                 //存储的key数据总量
+    localStorage.key(index)             //获取key
+
+sessionStorage  //为临时保存
+    sessionStorage.setItem(key,value)     //存储
+    sessionStorage.getItem(key)           //获取
+    sessionStorage.removeItem(key)        //删除
+    sessionStorage.clear()                //全部清除
+    sessionStorage.length                 //存储的key数据总量
+    sessionStorage.key(index)             //获取key
+
+//========视频、音频==================================
+video
+    //--------使用方法1----------------
+    <video src="" controls="controls"></video>
+
+    //--------使用方法2----------------
+    < video src="文件地址" controls="controls">
+        您的浏览器暂不支持video标签。播放视频
+    </ video >
+
+    //--------使用方法3----------------
+    < video  controls="controls"  width="300">
+        <source src="move.ogg" type='video/ogg; codecs="theora, vorbis"'>
+        <source src="move.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' >
+        <source src="move.webm"  type='video/webm; codecs="vp8, vorbis"' >
+        您的浏览器暂不支持video标签。播放视频
+    </ video >
+video的常见属性
+    属性          值                   描述
+    autoplay    autoplay        视频就绪自动播放
+    controls    controls        向用户显示播放控件
+    loop        loop        播放完是否继续播放该视频，循环播放
+
+    width       pixels(像素)    设置播放器宽度
+    height      pixels(像素)    设置播放器高度
+    preload     preload         是否等加载完再播放
+    src         url             视频url地址
+    poster      imgurl          加载等待的画面图片
+    autobuffer  autobuffer      设置为浏览器缓冲方式，不设置autoply才有效
+
+
+音视频共有的api
+    currentTime     //播放的时间(可读可写)
+    duration        //总时长 （可读）
+    volume          //音量 (可读可写)
+    paused          //暂停状态  （可读）
+    currentSrc      //当前音频的地址
+    error           //播放错误的信息
+    ended           //是否播放完毕
+    muted           //是否是静音
+    play() pause()  //播放/暂停
+
+audio
+//--------使用方法1----------------
+    <audio  src="文件地址" controls="controls"></audio>
+
+//--------使用方法2----------------
+    < audio src="文件地址" controls="controls">
+        您的浏览器暂不支持audio标签。播放视频
+    </ audio>
+
+//--------使用方法3----------------
+    < audio controls="controls"  >
+        <source src="happy.MP3" type="video/mpeg" >
+        <source src="happy.ogg" type="video/ogg" >
+        您的浏览器暂不支持audio标签。播放视频
+    </ audio>
+audio的常见属性
+属性          值               描述
+autoplay    autoplay    如果出现该属性，则音频在就绪后马上播放。
+controls    controls    如果出现该属性，则向用户显示控件，比如播放按钮。
+loop        loop        如果出现该属性，则每当音频结束时重新开始播放。
+preload     preload     如果出现该属性，则音频在页面加载时进行加载，并预备播放。
+如果使用 "autoplay"，则忽略该属性。
+src         url 要播放的音频的 URL。
+
+
+//=================canvas===========================
+<canvas id="can" width="300" height="300"></canvas>
+.getContext     //得到canvas对象绘制图形的环境
+
+.beginPach()    //
+.closePach()
+.moveTo()
+.lineTo()
+.strokeStyle    //设置边框的颜色
+.stroke()       //用线条描绘路径
+.rect()         //绘制矩形
+.lineWidth      //设置线宽
+.clearRect()    //删除指定区域
+.fillStyle      //设置填充颜色
+
+
+
+
+
+
+
+
+

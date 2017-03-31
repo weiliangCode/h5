@@ -1,0 +1,51 @@
+//-----------AngularJS 路由实现tab切换功能----------------------
+1.需要导入两个JS包，先后顺序不能反
+    <script src="angular.js"></script>
+    <script src="angular-route.js"></script>
+2.装载模板页的标签
+    <div ng-view></div>
+3.创建a的点击地址
+    <a href="#main">微信</a>
+4.注入路由的模型
+    var app = angular.module('myApp', ['ngRoute']);
+
+//$routeProvider        路由服务
+//$locationProvider     管理地址栏地址的服务
+5.init 配置方法
+    app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    //取消新版的前缀
+    $locationProvider.hashPrefix('');
+    //配置路由
+    $routeProvider
+                //路由地址
+        .when('/main', {
+            //该路由配置的页面路径
+            templateUrl: 'html/main.html',
+            //管理该页面的控制器
+            controller: 'mainCtrl'
+        })
+        .otherwise({
+            //其他情况重定向
+            redirectTo: '/contact'
+        })
+}]);
+6.配置控制器
+app.controller('mainCtrl', ['$scope', '$location', function($scope, $location){
+    //定义数据
+    $scope.array = [
+        {name: '张三'},
+        {name: '李四'}
+    ]
+    //定义方法
+    $scope.liAction = function(item, index){
+        console.log(item);
+        console.log(index);
+        //跳转页面和传递参数
+        $location.path('/main-chat/'+item.name);
+    }
+}])
+7.接收传递的参数
+app.controller('mainChatCtrl', ['$scope','$routeParams', function($scope, $routeParams){
+    $scope.name = $routeParams.name;
+}])
+//------------------------------------------------------

@@ -1,0 +1,17 @@
+http://www.bootcss.com/                 //中文官网
+
+
+1.利用 npm 工具来安装 Bootstrap
+    $ npm install bootstrap@3
+
+2.Bootstrap 使用 Grunt 作为编译系统
+    安装 Grunt
+    在全局环境中安装 grunt-cli
+    $ npm install -g grunt-cli
+
+//===============Grunt 命令=========
+grunt dist （仅编译 CSS 和 JavaScript 文件）
+grunt watch （监测文件的改变，并运行指定的 Grunt 任务）
+grunt test （运行测试用例）
+grunt docs （编译并测试文档中的资源文件）
+grunt （重新构建所有内容并运行测试用例）

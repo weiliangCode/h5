@@ -1,0 +1,259 @@
+1.============文本属性=====================
+    color               设置文本颜色
+    direction           设置文本方向。
+        ----ltr             默认。文本方向从左到右。
+        ----rtl             文本方向从右到左。
+        ----inherit         规定应该从父元素继承 direction 属性的值
+    letter-spacing      设置字符间距    **
+        ----normal          默认。规定字符间没有额外的空间。
+        ----length          定义字符间的固定空间（允许使用负值）。
+        ----inherit         规定应该从父元素继承 letter-spacing 属性的值。
+    line-height         设置行高
+    text-align          对齐元素中的文本
+        ----left            把文本排列到左边。默认值：由浏览器决定。
+        ----right           把文本排列到右边。
+        ----center          把文本排列到中间。
+        ----justify         实现两端对齐文本效果。
+        ----inherit         规定应该从父元素继承 text-align 属性的值。
+    text-decoration     向文本添加修饰
+        ----none            默认。定义标准的文本。
+        ----underline       定义文本下的一条线。
+        ----overline        定义文本上的一条线。
+        ----line-through    定义穿过文本下的一条线。
+        -----blink          定义闪烁的文本。
+        ----inherit         规定应该从父元素继承 text-decoration 属性的值。
+    text-indent         缩进元素中文本的首行
+        ----length          定义固定的缩进。默认值：0。
+        ----%               定义基于父元素宽度的百分比的缩进。
+        ----inherit         规定应该从父元素继承 text-indent 属性的值。
+    text-shadow         设置文本阴影   **
+        ----h-shadow        必需。水平阴影的位置。允许负值。
+        ----v-shadow        必需。垂直阴影的位置。允许负值。
+        ----blur            可选。模糊的距离。
+        ----color           可选。阴影的颜色。参阅 CSS 颜色值。
+    text-transform      控制元素中的字母
+        ----none            默认。定义带有小写字母和大写字母的标准的文本。
+        ----capitalize      文本中的每个单词以大写字母开头。
+        ----uppercase       定义仅有大写字母。
+        ----lowercase       定义无大写字母，仅有小写字母。
+        ----inherit         规定应该从父元素继承 text-transform 属性的值。
+    unicode-bidi        设置或返回文本是否被重写
+    vertical-align      设置元素的垂直对齐
+        ----baseline        默认。元素放置在父元素的基线上。
+        ----sub             垂直对齐文本的下标。
+        ----super           垂直对齐文本的上标
+        ----top             把元素的顶端与行中最高元素的顶端对齐
+        ----text-top        把元素的顶端与父元素字体的顶端对齐
+        ----middle          把此元素放置在父元素的中部。
+        ----bottom          把元素的顶端与行中最低的元素的顶端对齐。
+        ----text-bottom     把元素的底端与父元素字体的底端对齐。
+        ----length
+        ----%               使用 "line-height" 属性的百分比值来排列此元素。允许使用负值。
+        ----inherit         规定应该从父元素继承 vertical-align 属性的值。
+    white-space         设置元素中空白的处理方式    **
+        ----normal          默认。空白会被浏览器忽略。
+        ----pre             空白会被浏览器保留。其行为方式类似 HTML 中的 <pre></pre> 标签。
+        ----nowrap          文本不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。
+        ----pre-wrap        保留空白符序列，但是正常地进行换行。
+        ----pre-line        合并空白符序列，但是保留换行符。
+        ----inherit         规定应该从父元素继承 white-space 属性的值。
+    word-spacing        设置字间距        **
+        ---- normal         默认。定义单词间的标准空间。
+        ----length          定义单词间的固定空间。
+        ----inherit         规定应该从父元素继承 word-spacing 属性的值。
+
+2.============背景属性=====================
+    background              简写属性，作用是将背景属性设置在一个声明中。
+    background-attachment   背景图像是否固定或者随着页面的其余部分滚动。
+        ----scroll              背景图片随页面的其余部分滚动。这是默认
+        ----fixed               背景图像是固定的
+        ----inherit             指定background-attachment的设置应该从父元素继承
+        ----local               背景图片随滚动元素滚动
+    background-color        设置元素的背景颜色。
+    background-image        把图像设置为背景。
+    background-position     设置背景图像的起始位置。
+        ----left/right/center  top/bottom/center 如果仅指定一个关键字，其他值将会是"center"
+        ----x% y%               第一个值是水平位置，第二个值是垂直。左上角是0％0％。右下角是100％100％。如果仅指定了一个值，其他值将是50％。 。默认值为：0％0％
+        ----xpos ypos           第一个值是水平位置，第二个值是垂直。左上角是0。单位可以是像素（0px0px）或
+        任何其他CSS单位。如果仅指定了一个值，其他值将是50％。你可以混合使用％和positions
+        ----inherit             指定background-position属性设置应该从父元素继承
+    background-repeat       设置背景图像是否及如何重复。
+        ----repeat              背景图像将向垂直和水平方向重复。这是默认
+        ----repeat-x            只有水平位置会重复背景图像
+        ----repeat-y            只有垂直位置会重复背景图像
+        ----no-repeat background-image不会重复
+        ----inherit             指定background-repea属性设置应该从父元素继承
+    background-size         指定背景图片的大小
+        ----length 设置背景图片高度和宽度。第一个值设置宽度，第二个值设置的高度。如果只给出一个值，第二个是设置为"atuo(自动)"
+        ----percentage 将计算相对于背景定位区域的百分比。第一个值设置宽度，第二个值设置的高度。如果只给出一个值，第二个是设置为"auto(自动)"
+        ----cover 此时会保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小。
+        ----contain 此时会保持图像的纵横比并将图像缩放成将适合背景定位区域的最大大小。
+    background-origin       指定背景图像的定位区域
+        ----padding-box         背景图像填充框的相对位置
+        ----border-box          背景图像边界框的相对位置
+        ----content-box         背景图像的相对位置的内容框
+    background-clip         指定背景图像的绘画区域
+        ----border-box          默认值。背景绘制在边框方框内（剪切成边框方框）。
+        ----padding-box         背景绘制在衬距方框内（剪切成衬距方框）。
+        ----content-box         背景绘制在内容方框内（剪切成内容方框）。
+3.============Fonts(字体)=====================
+    font            在一个声明中设置所有的字体属性
+        ----"font-style font-variant font-weight font-size/line-height font-family"顺序 font-size和font-family的值是必需的
+    font-family     指定文本的字体系列
+        ----"微软雅黑"  用于某个元素的字体族名称或/及类族名称的一个优先表
+        ----inherit     规定应该从父元素继承字体系列
+    font-size       指定文本的字体大小
+    font-style      指定文本的字体样式
+        ----normal      默认值。浏览器显示一个标准的字体样式
+        ----italic      浏览器会显示一个斜体的字体样式
+        ----oblique     浏览器会显示一个倾斜的字体样式
+        ----inherit     规定应该从父元素继承字体样式
+    font-variant    以小型大写字体或者正常字体显示文本
+        ----normal      默认值。浏览器会显示一个标准的字体
+        ----small-caps  浏览器会显示小型大写字母的字体
+        ----inherit     规定应该从父元素继承 font-variant 属性的值
+    font-weight     指定字体的粗细
+        ----normal      默认值。定义标准的字符
+        ----bold        定义粗体字符
+        ----bolder      定义更粗的字符
+        ----lighter     定义更细的字符
+        ----100~900     定义由粗到细的字符。400 等同于 normal，而 700 等同于 bold。
+        ----inherit     规定应该从父元素继承字体的粗细
+
+4.============链接样式=====================
+    a:link -        正常，未访问过的链接
+    a:visited -     用户已访问过的链接
+    a:hover -       当用户鼠标放在链接上时   必须跟在 a:link 和 a:visited后面
+    a:active -      链接被点击的那一刻       必须跟在 a:hover后面
+
+5.============列表属性=====================
+    list-style          简写属性。用于把所有用于列表的属性设置于一个声明中
+        ----none            无
+        ----inherit         从父元素继承
+    list-style-image    将图象设置为列表项标志。
+    list-style-position 设置列表中列表项标志的位置。
+    list-style-type     设置列表项标志的类型。
+
+6.============表格=====================
+    outline:none;       去掉input获取焦点时候的边框
+
+7.============边框样式=====================
+    border              简写属性，用于把针对四个边的属性设置在一个声明。
+    border-style        用于设置元素所有边框的样式，或者单独地为各边设置边框样式。
+        ----none            定义无边框。
+        ----hidden          与 "none" 相同。不过应用于表时除外，对于表，hidden 用于解决边框冲突。
+        ----dotted          定义点状边框。在大多数浏览器中呈现为实线。
+        ----dashed          定义虚线。在大多数浏览器中呈现为实线。
+        ----solid           定义实线。
+        ----double          定义双线。双线的宽度等于 border-width 的值。
+        ----inherit         规定应该从父元素继承边框样式。
+    border-width        简写属性，用于为元素的所有边框设置宽度，或者单独地为各边边框设置宽度。
+    border-color        简写属性，设置元素的所有边框中可见部分的颜色，或为 4 个边分别设置颜色。
+    //top left right bottom 四个方向都有下面几个属性
+    border-top          简写属性，用于把上边框的所有属性设置到一个声明中。
+    border-top-color    设置元素的上边框的颜色。
+    border-top-style    设置元素的上边框的样式。
+    border-top-width    设置元素的上边框的宽度。
+
+8.============Margin(外边距)=====================
+    margin              简写属性。在一个声明中设置所有外边距属性。
+        ----margin:上  右  下 左
+        ----margin:上  左右  下
+        ----margin:上下  左右
+        ----margin:上下左右
+    margin-bottom       设置元素的下外边距。
+    margin-left         设置元素的左外边距。
+    margin-right        设置元素的右外边距。
+    margin-top          设置元素的上外边距
+
+9.============Padding（填充）=====================
+    padding 使用缩写属性设置在一个声明中的所有填充属性
+        ----padding:上  右  下 左
+        ----padding:上  左右  下
+        ----padding:上下  左右
+        ----padding:上下左右
+    padding-bottom 设置元素的底部填充
+    padding-left 设置元素的左部填充
+    padding-right 设置元素的右部填充
+    padding-top 设置元素的顶部填充
+
+10.============隐藏元素=====================
+    display:none            隐藏的元素不会占用任何空间
+    visibility:hidden       隐藏的元素仍需占用与未隐藏之前一样的空间
+
+
+11.============Positioning(定位)=====================
+    Positioning     指定元素的定位类型
+        ----Static 定位       HTML元素的默认值，即没有定位，
+        ----Fixed 定位        元素的位置相对于浏览器窗口是固定位置。
+        ----Relative 定位     相对定位元素的定位是相对其正常位置。
+        ----Absolute 定位     绝对定位的元素的位置相对于最近的已定位父元素
+    z-index         设置元素的堆叠顺序
+    top             定义了一个定位元素的上外边距边界与其包含块上边界之间的偏移。
+    overflow        设置当元素的内容溢出其区域时发生的事情。
+        ----visible     默认值。内容不会被修剪，会呈现在元素框之外。
+        ----hidden      内容会被修剪，并且其余内容是不可见的。
+        ----scroll      内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。
+        ----auto        如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。
+        ----inherit     规定应该从父元素继承 overflow 属性的值。
+    visible         默认值。内容不会被修剪，会呈现在元素框之外。
+        ----hidden      内容会被修剪，并且其余内容是不可见的。
+        ----scroll      内容会被修剪，但是浏览器会显示滚动条以便查看其余的内容。
+        ----auto        如果内容被修剪，则浏览器会显示滚动条以便查看其余的内容。
+        ----inherit     规定应该从父元素继承 overflow 属性的值。
+    cursor      显示光标移动到指定的类型
+        ----crosshair   光标呈现为十字线
+        ----auto        默认。浏览器设置的光标。
+        ----default     默认光标（通常是一个箭头）
+        ----pointer     光标呈现为指示链接的指针（一只手）
+        ----help        此光标指示可用的帮助（通常是一个问号或一个气球）。
+        ----text        此光标指示文本
+        ----move        此光标指示某对象可被移动。
+        。。。 还有很多属性值
+
+12.============浮动属性=====================
+    clear 指定不允许元素周围有浮动元素。
+        ----left            在左侧不允许浮动元素。
+        ----right           在右侧不允许浮动元素。
+        ----both            在左右两侧均不允许浮动元素。
+        ----none            默认值。允许浮动元素出现在两侧。
+        ----inherit         规定应该从父元素继承 clear 属性的值。
+    float 指定一个盒子（元素）是否可以浮动。
+        ----left            元素向左浮动。
+        ----right           元素向右浮动。
+        ----none            默认值。元素不浮动，并会显示在其在文本中出现的位置。
+        ----inherit         规定应该从父元素继承 float 属性的值。
+
+13.============伪类/元素====================
+    :link               选择所有未访问链接
+    :visited            选择所有访问过的链接
+    :active             选择正在活动链接
+    :hover              把鼠标放在链接上的状态
+    :focus              选择元素输入后具有焦点
+    :first-letter       选择每个<p> 元素的第一个字母
+    :first-line         选择每个<p> 元素的第一行
+    :first-child        选择器匹配属于任意元素的第一个子元素的 <]p> 元素
+    :before             Insert content before every <p> element
+    :after              在每个<p>元素之后插入内容
+    :lang(language)     为<p>元素的lang属性选择一个开始值
+14.========================================
+    opacity             //图像透明/不透明
+    !important          //定义是拥有最高的优先级(ie6不支持)
+    display             //规定元素应该生成的框的类型
+        ----none            此元素不会被显示。
+        ----block           此元素将显示为块级元素，此元素前后会带有换行符。
+        ----inline          默认。此元素会被显示为内联元素，元素前后没有换行符。
+        ----inline-block    行内块元素。（CSS2.1 新增的值）
+
+
+
+
+
+
+
+
+
+
+
+
+

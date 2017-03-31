@@ -1,0 +1,4 @@
+div{
+	transform: scale(0.5);
+	transform-origin: left;
+}

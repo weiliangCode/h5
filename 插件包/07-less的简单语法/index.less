@@ -1,0 +1,140 @@
+/* Variables 变量*/
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#header {
+  color: @light-blue;
+}
+
+
+/* Mixins 混合 */
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+
+
+#menu a {
+  color: #111;
+  .bordered;
+}
+
+.post a {
+  color: red;
+  .bordered;
+}
+
+
+/* Nested Rules 嵌套规则一 */
+#header {
+  color: black;
+  .navigation {
+    font-size: 12px;
+  }
+  .logo {
+    width: 300px;
+  }
+}
+
+/* Nested Rules 嵌套规则二 */
+.clearfix {
+  display: block;
+  zoom: 1;
+
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
+
+/*Nested Directives and Bubbling 嵌套的指示和冒泡一*/
+.screen-color {
+  @media screen {
+    color: green;
+    @media (min-width: 768px) {
+      color: red;
+    }
+  }
+  @media tv {
+    color: black;
+  }
+}
+
+/*Nested Directives and Bubbling 嵌套的指示和冒泡二*/
+#a {
+  color: blue;
+  @font-face {
+    src: made-up-url;
+  }
+  padding: 2 2 2 2;
+}
+
+
+/* Functions 函数 */
+@base: #f04615;
+@width: 0.5;
+
+.class {
+  width: percentage(@width); // returns `50%`
+  color: saturate(@base, 5%);
+  background-color: spin(lighten(@base, 25%), 8);
+}
+
+/*Namespaces and Accessors 命名空间和存储器*/
+#bundle {
+  .button {
+    display: block;
+    border: 1px solid black;
+    background-color: grey;
+    &:hover {
+      background-color: white
+    }
+  }
+  .tab {
+        display: none;
+        background-color: red;
+        &:hover {
+          background-color: white
+        }
+  }
+  
+}
+
+#header a {
+  color: orange;
+  #bundle > .button;
+}
+
+
+/*Scope 作用域一*/
+@var: red;
+#page {
+    @var: white;
+    #header {
+        color: @var; // white
+    }
+}
+/*Scope 作用域二*/
+@var1: red;
+#page {
+  #header {
+    color: @var1; // white
+  }
+  @var1: white;
+}
+
+
+/*Importing 导入外部文件 会放在最前面*/
+@import "typo.css";
+
+
+/**/
+/**/
+/**/
+/**/
+
+

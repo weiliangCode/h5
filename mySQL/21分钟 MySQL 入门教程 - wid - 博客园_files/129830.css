@@ -1,0 +1,30 @@
+pre{word-wrap:normal; word-wrap: break-word; }
+.blk_1{ padding-left:2em; }
+.blk_2{ padding-left:4em; }
+.blk_3{ padding-left:6em; }
+.blk_4{ padding-left:8em; }
+
+.blog-notice{
+	font-size: 15px;
+	font-family: "Lucida Grande", "Lucida Sans Unicode", "Hiragino Sans GB", "WenQuanYi Micro Hei", Verdana, Aril, sans-serif;
+	color: #111;
+}
+
+.blog-notice-body a{
+	color: #105CB6;
+	text-decoration: none;
+}
+
+.blog-notice-body a:hover{
+	text-decoration: underline;
+}
+
+.blog-notice-title{
+	font-weight: bold;
+	font-family: "Microsoft YaHei";
+	font-size: 16px;
+}
+
+.blog-notice-footer{
+	
+}

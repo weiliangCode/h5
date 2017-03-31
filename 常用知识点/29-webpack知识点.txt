@@ -1,0 +1,82 @@
+webpack 模块化加载的工具兼打包工具
+
+1.全局安装
+    npm install webpack -global
+
+2.本地创建package.json
+    npm init
+
+3.本地安装webpack
+    npm install webpack --save-dev
+
+//--------------------------------
+使用方式1：
+    命令执行：webpack 需要编译的文件路径  编译完成保存的路径
+     (例：)   webpack ./test/entry.js ./test/output.js
+    (webpack模块化代码完成后，需要使用编译得到的文件)
+
+使用方式2：
+    创建webpack.config.js文件
+    在这个文件中定义执行webpack的行为
+
+    (webpack.config.js文件：)
+    module.exports = {
+        entry:'./test1/entry.js',           //入口文件
+
+        output:{
+            path:'./test1',         //__dirname当前路径
+            filename:'bundle.js'
+        }
+        //需要使用的插件loader
+        module: {
+            loaders: [
+                //使用loader的规则
+                {test: /\.css$/, loader: 'style-loader!css-loader' }
+
+        ]
+    }
+    }
+//--------------------------------
+module.exports =                    //输出 输出类型：任意类型都可以
+var obj = require('./person.js');   //引入
+
+//-------------es6-------------------
+export {name};                      //输出 输出类型
+import {name} from './person.js'    //引入
+
+//=========================================
+
+4.安装能够解析样式的loader
+    npm install css-loader style-loader --save-dev
+
+使用：//引入样式
+    require('style-loader!css-loader!./main.css');
+        style-loader：识别样式表
+        css-loader： 解析样式
+//===========================================
+
+5.安装本地服务
+    (1).全局安装
+     npm install webpack-dev-server -g
+    (2).本地安装
+     npm install webpack-dev-server --save-dev
+
+使用：开启服务：
+执行命令：webpack-dev-server --inline --hot
+
+//===========================================
+6.安装babel:将es6转为es5
+    (1).全局安装
+        npm install babel-cli -g
+    (2).本地安装
+        npm install babel-cli --save-dev
+        npm install babel-loader babel-core --save-dev
+        npm install babel-preset-es2015 --save-dev
+使用：
+    在本地创建文件，名字为.babelrc
+    内容为： { presets: ["es2015"] }
+
+    因为没有文件名，所以要在命令行中强制写入，具体操作：
+    在命令行执行：   echo  { presets: ["es2015"] }>.babelrc
+
+

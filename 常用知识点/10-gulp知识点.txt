@@ -1,0 +1,79 @@
+//=========js 文件操作==================
+gulpfile.js         //创建一个文件(文件名不能变)
+
+gulp.src()                  //获得资源,可以多个资源，用数组保存多个资源路径
+    根据当前的gulpfile文件写相对路径
+    单个文件：js/index.js
+    多个相同格式的文件： js/*.js
+    同个文件夹下的文件：js/*
+    同个文件夹下的文件和文件夹：js/**/*
+gulp.pipe()                 //相当于管道的功能，传输资源
+gulp.dest()                 //将资源写入对应的路径 参数：路径
+concat()                    //合并文件 参数：合并后的文件名
+uglify()                    //压缩JS文件
+minifyCSS()                 //压缩CSS文件
+rename()                    //重命名 参数：新文件名
+gulp.watch() 监听文件的变化
+    //参数1：监听的文件路径
+    //参数2：监听到文件发生变化时，会执行的任务数组/任务方法
+watch()                     // 监听文件发生了改变
+webserver()                 //
+
+var gulp = require('gulp');             //引入gulp组件
+var concat = require('gulp-concat');    //引入合并文件操作的插件
+var uglify = require('gulp-uglify');    //引入压缩js文件的插件
+var minifyCSS = require('gulp-minify-css');//引入压缩css的插件
+var rename = require('gulp-rename');    //引入重命名插件
+
+//-------------------示例------------------------
+//创建任务
+//参数1：任务名字
+//参数2：任务内容
+    gulp.task('hello', function(){
+        console.log('this is hello task');
+    })
+
+//默认的任务
+    gulp.task('default', function(){
+        console.log('this is default task');
+    })
+
+//参数2:该任务需要依赖其他的任务的数组 ，在这个数组的任务是并发执行的
+//参数3：该任务本身的内容，需要等待所有的依赖的任务都执行完后，才能执行
+gulp.task('default', ['hello', 'hello1', 'hello2', 'hello3'], function(){
+    console.log('this is default task');
+});
+
+
+//去到目标路径下，执行拷贝
+//去到对应的路径下进行粘贴
+//src 获得资源
+//pipe 相当于管道的功能，传输资源
+//dest 将资源写入对应的路径
+    gulp.task('copy-files', function(){
+        gulp.src(['js/test.js', 'js/test1.js'])
+            .pipe(gulp.dest('js-test'));
+    })
+
+//=========cmd控制台操作==================
+npm install gulp -g         //全局安装gulp
+npm install gulp            //安装gulp到对应的文件夹
+npm install gulp --save -dev    //根据json安装对应的gulp
+        --save -dev         //自动把模块和版本号添加到devdependencies部分
+npm install gulp-concat     //安装合并文件插件
+npm install gulp-uglify     //安装JS压缩插件
+npm install gulp-minify-css //安装CSS压缩插件
+npm install gulp-rename     //安装重命名插件
+npm install gulp-imagesmin  //安装图片压缩插件
+npm install gulp-htmlmin    //安装html压缩插件
+npm install gulp-webserver  //
+
+npm install
+
+gulp 任务名                 //运行任务
+gulp                        //运行默认任务
+D:                          //切换盘
+cd 路径                     //切换路径
+gulp -v                     //查看版本
+npm init                    //创建package.json文件
+

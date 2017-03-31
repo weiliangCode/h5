@@ -1,0 +1,175 @@
+//======================================
+属性选择器
+    E[attr]         表示存在attr属性即可
+    E[attr=val]     表示属性值完全等于val
+    E[attr~="val"]  在一个或多个属性值列表中，凡是有一个属性值相等就起作用
+    E[attr|="val"]  指定属性是以“value-”开头的或者就是只有一个value都起作用
+    E[attr*=val]    表示的属性值里包含val字符并且在“任意”位置；
+    E[attr^=val]    表示的属性值里包含val字符并且在“开始”位置；
+    E[attr$=val]    表示的属性值里包含val字符并且在“结束”位置；
+
+//=====================================
+伪类选择器
+    E:first-child   第一个子元素
+    E:last-child    最后一个子元素
+    E:nth-child(odd)    表示父元素中的第奇数个子节点，并且该节点跟选择器相同
+    E:nth-child(even)   表示父元素中的第偶数个子节点，并且该节点跟选择器相同
+    E:nth-child(n)      第n个子元素，计算方法是E元素的全部兄弟元素；
+    E:nth-last-child(n) 同E:nth-child(n) 相似，只是倒着计算；
+        n遵循线性变化，其取值0、1、2、3、4、...
+
+    E:nth-of-type(n)表示父元素中的第n个选择器相同子节点
+    E:nth-of-type(odd) 表示父元素中的第奇数个选择器相同子节点
+    E:nth-of-type(even)表示父元素中的第偶数个选择器相同子节点
+    E:nth-of-type(3n+1) n从0开始算起，0,2,4,6,8，10.。。。。1  4   7  10
+
+    E::first-letter文本的第一个单词或字
+    E::first-line 文本第一行；
+    E:after
+    E:before
+
+
+//=====================================
+rgba            //颜色
+transparent     //不可调节透明度，始终完全透明
+border-radius   //边框圆角
+    可分别设置长、短半径，以“/”进行分隔，遵循“1，2，3，4”规则
+text-shadow     //设置文字阴影
+    //可分别设置偏移量、模糊度、颜色（可设透明度）
+    1、水平偏移量 正值向右 负值向左；
+    2、垂直偏移量 正值向下 负值向上；
+    3、模糊度是不能为负值；
+box-shadow      //边框阴影
+    1、水平偏移量 正值向右 负值向左；
+    2、垂直偏移量 正值向下 负值向上；
+    3、模糊度是不能为负值；
+    4、inset可以设置内阴影；
+border-image    //边框图片
+    //设置的图片将会被“切割”成九宫格形式，然后进行设置
+background-slice: 34 36 27 27   //更改裁切尺寸
+box-sizing      //盒模型
+    //box-sizing: border-box  计算方式为width = border + padding + content
+    //box-sizing: content-box  计算方式为width = content
+background-size //设置背景图片的尺寸
+    //cover会自动调整缩放比例，保证图片始终填充满背景区域，如有溢出部分则会被隐藏。
+    //contain会自动调整缩放比例，保证图片始终完整显示在背景区域。
+    //也可以使用长度单位或百分比
+background-origin   //设置背景定位的原点
+    //border-box    以边框做为参考原点；
+    //padding-box   以内边距做为参考原点；
+    //content-box   以内容区做为参考点；
+background-clip     //设置背景区域裁切
+    //border-box    裁切边框以内为背景区域；
+    //padding-box   裁切内边距以内为背景区域；
+    //content-box   裁切内容区做为背景区域；
+以逗号分隔可以设置多背景，可用于自适应局
+linear-gradient     //线性渐变
+    //1、必要的元素：
+        a、方向
+        b、起始颜色
+        c、终止色；
+radial-gradient     //径向渐变
+    //1、必要的元素：
+        a、辐射范围即圆半径
+        b、中心点 即圆的中心
+        c、渐变起始色
+        d、渐变终止色
+transition-property     设置过渡属性
+transition-duration     设置过渡时间
+transition-timing-function设置过渡速度
+transition-delay        设置过渡延时
+
+transform   //转换
+//-------2D转换---------------------
+移动 translate(x, y) 可以改变元素的位置，x、y可为负值；
+缩放 scale(x, y) 可以对元素进行水平和垂直方向的缩放，x、y的取值可为小数，不可为负值；
+旋转 rotate(deg) 可以对元素进行旋转，正值为顺时针，负值为逆时针；
+倾斜 skew(deg, deg) 可以使元素按一定的角度进行倾斜
+//-------3D转换---------------------
+transform                   //向元素应用 2D 或 3D 转换。
+    matrix3d(n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n)   定义 3D 转换，使用 16 个值的 4x4 矩阵。
+    translate3d(x,y,z)  定义 3D 转化。
+    translateX(x)   定义 3D 转化，仅使用用于 X 轴的值。
+    translateY(y)   定义 3D 转化，仅使用用于 Y 轴的值。
+    translateZ(z)   定义 3D 转化，仅使用用于 Z 轴的值。
+    scale3d(x,y,z)  定义 3D 缩放转换。
+    scaleX(x)       定义 3D 缩放转换，通过给定一个 X 轴的值。
+    scaleY(y)       定义 3D 缩放转换，通过给定一个 Y 轴的值。
+    scaleZ(z)       定义 3D 缩放转换，通过给定一个 Z 轴的值。
+    rotate3d(x,y,z,angle)   定义 3D 旋转。
+    rotateX(angle)  定义沿 X 轴的 3D 旋转。
+    rotateY(angle)  定义沿 Y 轴的 3D 旋转。
+    rotateZ(angle)  定义沿 Z 轴的 3D 旋转。
+    perspective(n)  定义 3D 转换元素的透视视图。
+transform-origin            //允许你改变被转换元素的位置。
+    transform-origin: x-axis y-axis z-axis;
+    x-axis 定义视图被置于 X 轴的何处。可能的值：left、center、right、length、%
+    y-axis 定义视图被置于 Y 轴的何处。可能的值：top、center、bottom、length、%
+    z-axis 定义视图被置于 Z 轴的何处。可能的值：length
+transform-style             //规定被嵌套元素如何在 3D 空间中显示。
+    flat            //子元素将不保留其 3D 位置。
+    preserve-3d     //子元素将保留其 3D 位置。
+perspective                 //规定 3D 元素的透视效果。(景深)
+    number          //元素距离视图的距离，以像素计。
+    none            //默认值。与 0 相同。不设置透视。
+perspective-origin          //规定 3D 元素的底部位置。
+    perspective-origin: x-axis y-axis;
+    x-axis 定义该视图在 x 轴上的位置。默认值：50%。可能的值：left、center、right、length、%
+    y-axis 定义该视图在 y 轴上的位置。默认值：50%。可能的值：top、center、bottom、length、%
+backface-visibility         //定义元素在不面对屏幕时是否可见。
+    visible         默认值。 背面是可见的。
+    hidden          背面是不可见的。
+
+//-------动画---------------------
+    @keyframes                  指定动画序列
+    animation-name              设置动画序列名称
+    animation-duration          动画持续时间
+    animation-delay             动画延时时间
+    animation-timing-function   动画执行速度，linear、ease等
+    animation-play-state        动画播放状态，play、paused等
+    animation-direction         动画逆播，alternate等
+    animation-fill-mode         动画执行完毕后状态，forwards、backwards等
+    animation-iteration-count   动画执行次数，inifinate等
+
+//-------伸缩布局---------------------
+1、必要元素：
+    a、指定一个盒子为伸缩盒子 display: flex
+    b、设置属性来调整此盒的子元素的布局方式 例如 flex-direction
+    c、明确主侧轴及方向
+    d、可互换主侧轴，也可改变方向
+2、各属性详解
+    display           //要改变元素的模式为伸缩容器
+        flex:设置为块级伸缩容器。
+    　　inline-flex:设置为内联级伸缩容器。
+    flex-direction    //调整主轴方向（默认为水平方向）
+        row:默认值，如果书写方式是ltr，那么Flex项目从左向右排列；如果书写方式是rtl，那么Flex项目从右向左排列。
+　　    row-reverse:如果书写方式是ltr，那么Flex项目从右向左排列；如果书写方式是rtl，那么Flex项目从左向右排列。
+　　    column:和row类似，方向从上到下排列。
+　　    column-reverse:和row-reverse类似，方向从下到上排列。
+    justify-content   //调整主轴对齐
+        flex-start:默认值，伸缩项目向一行的起始位置靠齐。伸缩容器沿着布局轴方向的所有额外空间都被置于布局轴的末尾。
+        flex-end:和flex-start相反，伸缩项目向一行的结束位置靠齐。伸缩容器沿着布局轴方向的所有额外空间都被置于布局轴的开始。
+        center:伸缩项目向一行的中间位置靠齐。伸缩容器的所有额外空间平均分布在第一伸缩项目前面和最后一个伸缩项目的后面。
+        space-between:伸缩项目会平均分布在行里。伸缩容器的所有额外空间平均分布在所有伸缩项目之间，但是在第一个伸缩项目之前和最后一个伸缩项目之后不分配空间，也就是说，第一个伸缩项目靠齐开始位置，最后一个伸缩项目靠齐结束位置。
+        space-around:伸缩项目会品均分布在行里。伸缩容器的所有额外空间品均分布在所有伸缩项目之间，但是第一个伸缩项目之前与最后一个伸缩项目之后只分配其他位置得到额外空间的一半。
+    align-items       //调整侧轴对齐
+        flex-start:伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。
+        flex-end:伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。
+        center:伸缩项目的外边距盒在该行的侧轴上居中放置。
+        baseline:如果伸缩项目的行内轴与侧轴为同一条，则该值和flex-start等效。其它情况下，该值将参与基线对齐。所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。
+        stretch:如果侧轴长度属性的值为auto，则此值会使项目的外边距盒的尺寸在遵照min/max-width/height属性的限制下尽可能接近所在行的尺寸。
+    flex-wrap         //控制是否换行
+        　nowrap:默认值，单行显示，如果书写方式是ltr，Flex项目从左往右排列；如果书写方式是trl，Flex项目从右往左排列。
+　　      wrap:多行显示，如果书写方式是ltr，Flex项目从左往右排列；如果书写方式是trl，Flex项目从右往左排列。
+　　      wrap-reverse:多行显示，如果书写方式是ltr，Flex项目从右往左排列；如果书写方式是trl，Flex项目从左往右排列。
+    align-content     //堆栈（由flex-wrap产生的独立行）对齐
+        flex-start:各行向伸缩容器的起点位置堆叠。
+    　　flex-end:各行向伸缩容器的结束位置堆叠。
+    　　center:各行向伸缩容器的中间位置堆叠。
+    　　space-between:各行在伸缩容器中平均分布。
+    　　space-around:各行在伸缩容器中品均分布，在两边各有一半空间。
+    　　stretch:默认值，各行将会伸展以占用额外空间。
+    flex-flow         //是flex-direction、flex-wrap的简写形式
+    flex              //控制子项目的缩放比例
+    order             //控制子项目的排列顺序
+

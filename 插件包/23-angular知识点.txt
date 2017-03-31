@@ -1,0 +1,191 @@
+http://ionicframework.com/docs/api/service/$ionicHistory/       //官网
+
+angular.js      //需要引入文件包
+//-----------------html----------------------
+ng-app          //定义angular的作用范围
+
+ng-focus        //规定聚焦事件的行为
+ng-form         //指定 HTML 表单继承控制器表单
+ng-blur         //规定 blur 事件的行为
+ng-submit       //规定 onsubmit 事件发生时执行的表达式
+ng-click        //定义元素被点击时的行为
+    <button ng-click="btnAction()">点击</button>
+ng-dblclick     //规定双击事件的行为
+ng-keydown      //规定按下按键事件的行为
+ng-keypress     //规定按下按键事件的行为
+ng-keyup        //规定松开按键事件的行为
+ng-mousedown    //规定按下鼠标按键时的行为
+ng-mouseenter   //规定鼠标指针穿过元素时的行为
+ng-mouseleave   //规定鼠标指针离开元素时的行为
+ng-mousemove    //规定鼠标指针在指定的元素中移动时的行为
+ng-mouseover    //规定鼠标指针位于元素上方时的行为
+ng-mouseup      //规定当在元素上松开鼠标按钮时的行为
+ng-change       //规定在内容改变时要执行的表达式
+ng-checked      //规定元素是否被选中
+ng-copy         //规定拷贝事件的行为
+ng-paste        //规定粘贴事件的行为
+ng-cut          //规定剪切事件的行为
+ng-disabled     //规定一个元素是否被禁用
+
+ng-bind         //绑定 HTML 元素到应用程序数据
+ng-bind-html    //绑定 HTML 元素的 innerHTML 到应用程序数据，并移除 HTML 字符串中危险字符
+ng-bind-template//规定要使用模板替换的文本内容
+
+ng-if           //如果条件为 false 移除 HTML 元素
+ng-show         //显示或隐藏 HTML 元素
+ng-hide         //隐藏或显示 HTML 元素
+ng-switch       //规定显示或隐藏子元素的条件
+
+ng-class        //指定 HTML 元素使用的 CSS 类
+    ng-class={classname1:是否添加，classname2:是否添加}
+ng-class-even   /类似 ng-class，但只在偶数行起作用
+ng-class-odd    //类似 ng-class，但只在奇数行起作用
+ng-style        //指定元素的 style 属性
+
+ng-cloak        //在应用正要加载时防止其闪烁
+ng-controller   //定义应用的控制器对象
+ng-csp          //修改内容的安全策略
+ng-href         //为 the <a> 元素指定链接
+ng-src          //指定 <img> 元素的 src 属性
+ng-include      //在应用中包含 HTML 文件
+ng-init         //定义应用的初始化值
+ng-jq           //定义应用必须使用到的库，如：jQuery
+ng-list         //将文本转换为列表 (数组)
+ng-model        //用于绑定应用程序数据到 HTML 控制器(input, select, textarea)的值
+ng-model-options//规定如何更新模型
+ng-non-bindable //规定元素或子元素不能绑定数据
+ng-open         //指定元素的 open 属性
+ng-pluralize    //根据本地化规则显示信息
+ng-readonly     //指定元素的 readonly 属性
+ng-repeat       //用来遍历一个数组重复创建当前元素
+ng-selected     //指定元素的 selected 属性
+ng-srcset       //指定 <img> 元素的 srcset 属性
+ng-transclude   //规定填充的目标位置
+ng-options      //在 <select> 列表中指定 <options>
+ng-value        //规定 input 元素的值
+
+//
+ng-repeat       //用来遍历一个数组重复创建当前元素
+collection-repeat   //
+
+//-----------------js----------------------
+// 创建一个名字叫MyApp的模块，第二个参数指的是该模块依赖那些模块
+var myApp = angular.module("MyApp", []);
+
+可以注入的依赖模块：
+'ionic'     //
+'ngRoute'   //路由模块
+
+
+//数据发生改变不能及时同步到页面，
+ $scope.$apply(function(){
+    //这里写数据的变化
+    //$scope.pageNo ++;
+});
+
+//------------------------------------------
+//创建定时器
+$timeout(fn, [delay], [invokeApply]);
+例：var customTimeout = $timeout(function () {
+}, 1000);
+
+//停止定时器
+$timeout.cancel([promise])
+例：$timeout.cancel(customTimeout);
+//------------------------------------------
+//init 配置方法
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+    //取消新版的前缀
+    $locationProvider.hashPrefix('');
+    //配置路由
+    $routeProvider
+            //路由地址
+        .when('/main', {
+            templateUrl: 'html/main.html',//该路由配置的页面路径
+            controller: 'mainCtrl'//管理该页面的控制器
+        })
+        .when('/main-chat/:name', {//':'之后接的是参数，name是形参名字
+            templateUrl: 'html/main-chat.html',
+            controller: 'mainChatCtrl'
+        })
+        .otherwise({
+            //其他情况重定向
+            redirectTo: '/contact'
+        })
+}]);
+
+//$routeProvider        //路由服务
+//$locationProvider     //管理地址栏地址的服务
+//.config只可以注入供应商.provider方法创建服务的供应商。名字：服务+Provider
+//供应商也只可以注入在这
+//供应商在config方法中，可以对服务数据进行全局配置。
+
+//------------------------------------------
+//创建控制器  参数1:控制器名字  参数2:控制器的构造方法
+app.controller('firstCtrl', ['$scope',function($scope) {
+    $scope.page1 = 'html/page1.html';
+    $scope.text = '';
+    $scope.btnAction = function() {
+        alert($scope.text)
+    }
+}])
+    控制器的三种主要职责：
+    为应用中的模型设置初始状态
+    通过$scope对象把数据模型或函数行为暴露给视图
+    监视模型的变化，做出相应的动作
+    公共的抽象
+
+
+
+//------------------------------------------
+$urlRouterProvider  //
+$scope      //(作用域) 是应用在 HTML (视图) 和 JavaScript (控制器)之间的纽带。
+$rootScope  //根作用域,可以作用在 ng-app 指令包含的所有 HTML 元素中
+
+//模型开始运行的回调方法
+app.run(['$rootScope',function($rootScope) {
+
+}])
+
+//------------------------------------------
+//创建服务
+//创建服务的方式1
+//参数1：服务名
+//参数2：这个服务的构造函数
+app.service('myService', function(){
+    this.name = 'zhangsan';
+    this.log = function(){
+        console.log(this.name);
+    }
+})
+
+//创建服务的方式2
+//参数1：服务名
+//参数2：实现方法，这个方法需要返回服务对象
+app.factory('myFactory', function(){
+    console.log('factory()');
+    var obj = {};
+    obj.name = 'lisi';
+    obj.age = 40;
+    return obj;
+})
+
+
+//创建服务的方式3
+//参数1：服务名
+//参数2：这个服务的供应商的构造方法
+app.provider('myProvider', function(){
+    console.log('provider()');
+    this.name = 'wangwu';
+    //这个$get方法，需要return服务对象
+    this.$get = function(){
+        var obj = {};
+        var that = this;
+        obj.getName = function(){
+            return that.name;
+        }
+        return obj;
+    }
+})
+
+
