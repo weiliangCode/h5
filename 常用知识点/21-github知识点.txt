@@ -34,3 +34,7 @@ https://github.com/huangweilinag/huangweilinag.github.io.git
 
 11.同步到远程服务器上
     git push -u origin master
+    
+
+
+http://172.19.6.123/products/console.git
