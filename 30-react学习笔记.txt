@@ -1,0 +1,13 @@
+Yeoman教程
+	慕课堂：Grunt_Beginner  前端自动化工具
+
+Yeoman全局安装
+	npm i -g yo
+
+查看版本
+	yo --version
+ 
+http://yeoman.io/	//官网
+
+
+npm ls -g --deoth=1 2>/dev/null | grep generator-

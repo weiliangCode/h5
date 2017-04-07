@@ -1,0 +1,50 @@
+
+//=================需要掌握的资料======================================
+react 
+react-router  
+redux  
+react-redux
+
+RactiveJS
+
+fis3
+
+sulky
+
+JSX 语法
+
+
+//==================不错的小知识点=====================================
+//快捷启动cmd窗口：
+	在资源管理器中按住Shift点右键也能打开CMD，选“在此处打开命令窗口”就行了。
+
+cnpm i 					//安装
+
+npm start				//启动程序
+
+payment					//分支1
+
+payment-enterprise		//分支2
+
+ipconfig 				//查看本机IP
+
+
+npm run deploy:prod		//翌支付项目打包指令（把包完成的文件存放在dist文件夹中上传到SVN既可）
+
+
+sulky release -w
+sulky server start
+//=====================资源============================================
+
+//hen 组件官网
+https://ant.design/components/date-picker-cn/
+
+//SUI Mobile官网（轻量，小巧且精美的UI库方便迅速搭建手机H5应用）
+http://m.sui.taobao.org/
+
+
+//sulky github资源
+https://github.com/shingle/sulky
+
+vue  组件element
+	http://element.eleme.io/#/zh-CN
