@@ -35,6 +35,26 @@ https://github.com/huangweilinag/huangweilinag.github.io.git
 11.同步到远程服务器上
     git push -u origin master
     
+//====================================================    
+12.查看提交的记录
+	git log
+
+13.版本对比	
+	git diff				//查看工作区与暂存区对比
+	git diff --cached		//查看暂存区与版本库对比
+	git diff --staged		//查看暂存区与版本库对比
+	git diff --master		//查看工作区与版本库对比
+
+14.撤消
+	git reset HEAD  文件名	//从暂存区撤消回工作区
+	git checkout --文件名	//从版本库撤消回工作区
+	
+	
+	
+	
+	
+
+    
 
 
 http://172.19.6.123/products/console.git
