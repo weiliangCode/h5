@@ -1,2 +1,13 @@
 1.使用vue功能时城要引入
     vue.js
+    
+
+2.vuejs前端开发的一些小坑
+http://www.tuicool.com/articles/aUrmumV
+
+
+3.Vue开源项目库汇总
+http://www.cnblogs.com/opendigg/p/6513510.html
+
+4.vue-router 2 文档
+https://router.vuejs.org/zh-cn/
