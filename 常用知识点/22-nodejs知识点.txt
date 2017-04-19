@@ -1,0 +1,4 @@
+
+cnpm使用的是淘宝网的镜像http://npm.taobao.org
+cnpm指令使用前提：    npm install cnpm -g --registry=https://registry.npm.taobao.org
+
