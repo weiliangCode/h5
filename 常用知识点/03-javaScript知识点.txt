@@ -375,3 +375,32 @@
 var goodsId = location.search;
 //对地址进行分割，取得传入的数据
 goodsId = goodsId.split("=")[1];
+
+//============================
+switch(num){
+	case 1: {};break;
+	default: {}
+}
+
+while (条件){
+  	需要执行的代码
+}
+
+do {
+  	需要执行的代码
+}
+while (条件);
+
+for (变量 in 对象)
+{
+    在此执行代码
+}
+continue 结束本次循环
+
+if()
+else{}
+
+
+
+
+
