@@ -1,0 +1,40 @@
+安装
+	npm install vuex --save
+	
+	
+//引入	
+import Vue from 'vue'
+import Vuex from 'vuex'
+//Vuex 通过 store 选项，提供了一种机制将状态从根组件『注入』到每一个子组件中
+Vue.use(Vuex)
+
+
+每个应用将仅仅包含一个 store 实例
+
+ //------------------------------------  
+import store from './store'
+new Vue({
+	store,
+	el: '#app',
+	render: h => h(App)
+})
+
+//------------------------------------  
+import {mapGetters, mapActions} from 'vuex'
+	computed: mapGetters ([		//用来获得状态 	
+  
+    ]),
+    methods: mapActions([		//用来提交状态
+      
+    ])
+  
+//------------------------------------  
+ const mutations = {
+	increment(state) { //处理状态(数据)变化
+		state.count++;
+	},
+	decrement(state) {
+		state.count--;
+	}
+};
+    

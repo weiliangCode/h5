@@ -32,4 +32,5 @@ http://www.oschina.net/                             //开源中国社区
     里面有很多IT开发资料，原代码，开发工具
 http://element.eleme.io/#/zh-CN                     //vue UI组件 （element）
 http://mint-ui.github.io/docs/#!/zh-cn2             //vue UI组件 （Mint UI）
+https://zhuanlan.zhihu.com/p/26484814				//PHP学习资料
 
