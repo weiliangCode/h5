@@ -22,7 +22,7 @@
 export default {
 	name:组件名,
 	components:{},	//用于自义子组件
-	data:{			//用于存放数据
+	data () {			//用于存放数据
 		return {
 			变量名：初始值
 		}	
@@ -41,9 +41,17 @@ export default {
 this.$emit("on-ok"，data);				//主动触发on-ok方法，data为向父组件传递的数据	
 <自定义组件 @on-ok="upup"></自定义组件>	//监听子组件触发的on-ok事件,然后调用upup方法
 
+this.$parent 		//访问父组件
+this.$children 		//访问子组件（是一个数组）
+this.$root 			//根实例的后代访问根实例
+
 ref在官网上的解释简单来说就是用来绑定某个dom元素，或者来说用来绑定某个组件，然后在$refs里面调用
 <div class="touchscroll" ref='div'>		//绑定
 this.$refs.div.scrollTop.				//调用
+
+
+
+
 //------------------------------------------
 //引入外部less文件
 <style lang="less" scoped>

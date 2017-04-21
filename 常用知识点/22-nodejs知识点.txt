@@ -1,4 +1,16 @@
-
 cnpm使用的是淘宝网的镜像http://npm.taobao.org
 cnpm指令使用前提：    npm install cnpm -g --registry=https://registry.npm.taobao.org
+
+
+npm install 名件名 --save			//安装插件并保存到package.js文件中
+npm install 名件名 --save-dev		//安装依赖插件并保存到package.js文件中
+npm install 名件名 -global			//全局安装
+npm i 名件名 -g					//与上面等价（简写方式）
+npm install	名件名				//下载文件到当前文件夹中
+npm install	名件名 名件名			//同时下载多个插件
+npm install						//根据package.js下载依赖文件
+npm init                    	//创建package.json文件
+插件名 -v							//查看版本
+
+
 

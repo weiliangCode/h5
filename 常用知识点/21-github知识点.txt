@@ -35,6 +35,8 @@ https://github.com/huangweilinag/huangweilinag.github.io.git
 11.同步到远程服务器上
     git push -u origin master
     
+12.将服务器代码更新到本地
+	git pull
 //====================================================    
 12.查看提交的记录
 	git log
