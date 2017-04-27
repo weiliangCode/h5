@@ -14,3 +14,10 @@ npm init                    	//创建package.json文件
 
 
 
+
+//================nodejs服务器功能============================
+global				//全局对象
+require(‘路径’)		//模块引用
+var net = require('net')	//net模块包含了Node需要的所有TCP功能
+
+
