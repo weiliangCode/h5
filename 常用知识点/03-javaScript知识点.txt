@@ -65,6 +65,8 @@
     document.write();       //文档打印
     confirm();              //带取消按钮的弹出框，  返回true(确认) false(取消)
     alert();                //弹出框
+//打印输出有颜色的字
+console.log('%c this is color! ', 'background: #222; color: #bada55');
 
 
 6.============事件=====================

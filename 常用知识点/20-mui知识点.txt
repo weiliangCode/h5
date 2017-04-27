@@ -1,1 +1,18 @@
 http://www.dcloud.io/           //官网
+
+
+//--------------------------------------------
+IOS自动获得焦点
+<body>
+	<input type="text" id="testautofocus" />
+	
+	<script type="text/javascript">
+		// H5 plus事件处理
+		function plusReady() {
+			var webView = plus.webview.currentWebview().nativeInstanceObject();
+			webView.plusCallMethod({ "setKeyboardDisplayRequiresUserAction": false });
+			document.getElementById("testautofocus").focus();
+		}
+		document.addEventListener("plusready", plusReady, false);
+	</script>
+</body>

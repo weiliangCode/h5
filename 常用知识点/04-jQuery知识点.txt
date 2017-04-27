@@ -153,3 +153,12 @@
         //参数1：是否清空动画队列 2：否立即执行完当前正在执行的动画
     .finish()       //停止动画, 并直接到达终点位置
     .delay()        //设置一个延时来推迟执行队列中之后的项目
+    
+//=================ajax================================
+//判断是否IE浏览器,? $ajax IE兼容问题需要在url前加空格
+function isIE(paramUrl) {
+    if (!!window.ActiveXObject || "ActiveXObject" in window)  
+        return ' ' + paramUrl;  
+    else  
+        return paramUrl;  
+}  
