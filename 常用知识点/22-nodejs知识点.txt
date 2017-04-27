@@ -14,3 +14,61 @@ npm init                    	//创建package.json文件
 
 
 
+//----------使用nvm管理nodejs--------------------
+配置步骤:
+	1.卸载到你机器中已有的Node.js环境
+	2.解压对应的dev版本到C盘
+	3.把C:\dev\nvm该目录添加到环境变量
+	4.在环境变量中添加一个属性名为NVM_SYMLINK属性值为C:\dev\nodejs
+
+
+//----nvm的使用-------
+nvm list 				//查看nvm中所有已安装的Node.js版本
+nvm use 版本号			//使用和切换node版本
+nvm install 版本号		//安装Node版本
+nvm uninstall 版本号		//卸载指定版本
+例：版本号【5.7.0】
+
+
+
+//---------------------------
+每个模块内部，都有一个module对象，代表当前模块
+
+exports			//暴露
+module.exports
+
+require()	//加载模块文件
+
+__dirname
+	
+	
+nodejs	模块分为为两类
+	一、核心模块：
+核心模块是Node.js原生提供的
+加载核心模块的时候，不需要传入路径，因为Node.js已经将核心模块的文件代码编译到了二进制的可执行文件中了
+在加载的过程中，原生的核心模块的优先级是是最高的
+	fs			//操作文件
+	http		//提供http服务器功能
+	os			//操作系统
+	path		
+	querystring	//
+	url			//
+	
+	二、文件模块： ./或../开始的相对路径
+	
+node 会按照'.js、.node、.json'的次序补足扩展名，依次尝试
+ __dirname和__filename
+  ``` 关于这俩家伙，一般在读取文件的时候，最好使用绝对路径的方式，通过这俩家伙拼接 ```
+- setTimeout和clearTimeout
+- setInterval和clearInterval
+- console
+  + time('timer')
+  + timeEnd('timer')
+  + 成对的出现
+  
+  
+ //---------------npm -----------------------
+- 基于Node.js开发的包的托管网站
+- Node.js包管理工具
+npm :基于包的规范实现的一个包管理工具
+

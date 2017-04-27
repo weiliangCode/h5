@@ -14,6 +14,7 @@ http://ionicframework.com/getting-started/          //angularJS官网
 http://www.dcloud.io/                               //MUI官网
     可以实现原生App的很多功能
 https://cn.vuejs.org/                               //vue官网
+https://facebook.github.io/react/					//react官网
 https://github.com/                                 //github官网
 https://github.com/huangweilinag                    //我的github
 https://open.weixin.qq.com/                         //微信开放平台
@@ -34,3 +35,6 @@ http://element.eleme.io/#/zh-CN                     //vue UI组件 （element）
 http://mint-ui.github.io/docs/#!/zh-cn2             //vue UI组件 （Mint UI）
 https://zhuanlan.zhihu.com/p/26484814				//PHP学习资料
 
+http://www.bootcdn.cn/								//CDN 官网
+http://nodejs.cn/download/releases/					//nodejs所有版本
+http://nodejs.cn/									//nodejs中文官网				 	

@@ -1,3 +1,5 @@
+官网 https://facebook.github.io/react/
+
 JSX 的基本语法规则：遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析
 组件的属性可以在组件类的 this.props 对象上获取
 class 属性需要写成 className ，for 属性需要写成 htmlFor

@@ -61,3 +61,8 @@ this.$refs.div.scrollTop.				//调用
 import Tabs from './tabs.vue';
 //导出文件
 export default Tabs;
+
+
+//-----------------------------------------
+//数据请求
+axios
