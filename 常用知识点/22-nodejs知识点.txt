@@ -14,7 +14,6 @@ npm init                    	//创建package.json文件
 
 
 
-<<<<<<< HEAD
 //----------使用nvm管理nodejs--------------------
 配置步骤:
 	1.卸载到你机器中已有的Node.js环境
