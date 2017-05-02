@@ -49,7 +49,8 @@ https://github.com/huangweilinag/huangweilinag.github.io.git
 
 14.撤消
 	git reset HEAD  文件名	//从暂存区撤消回工作区
-	git checkout --文件名	//从版本库撤消回工作区
+	git reset HEAD  版本号	//撤消回到指定的版本
+	git checkout --文件名		//从版本库撤消回工作区
 	
 	
 	

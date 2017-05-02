@@ -261,3 +261,11 @@ destroyed()     //已销毁
     .fade-leave{/*离开完成的状态*/
       opacity: 0;
     }
+    
+
+//=============================================
+//webpack	
+Generate project in current directory?
+在当前目录生成项目吗?
+Project description
+项目描述
