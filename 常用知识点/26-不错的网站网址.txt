@@ -35,6 +35,7 @@ http://element.eleme.io/#/zh-CN                     //vue UI组件 （element）
 http://mint-ui.github.io/docs/#!/zh-cn2             //vue UI组件 （Mint UI）
 https://zhuanlan.zhihu.com/p/26484814				//PHP学习资料
 
-http://www.bootcdn.cn/								//CDN 官网
+http://www.bootcdn.cn/	
+https://bootstrap-vue.github.io/docs/setup			//bootstrap-vue官网							//CDN 官网
 http://nodejs.cn/download/releases/					//nodejs所有版本
 http://nodejs.cn/									//nodejs中文官网				 	

@@ -11,3 +11,7 @@ http://yeoman.io/	//官网
 
 
 npm ls -g --deoth=1 2>/dev/null | grep generator-
+
+
+
+event.target

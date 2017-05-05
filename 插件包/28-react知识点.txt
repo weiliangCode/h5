@@ -1,22 +1,14 @@
 官网 https://facebook.github.io/react/
 
-JSX 的基本语法规则：遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析
-组件的属性可以在组件类的 this.props 对象上获取
-class 属性需要写成 className ，for 属性需要写成 htmlFor
+//========================Retact============================
+
 this.props.children 的值有三种可能：如果当前组件没有子节点，它就是 undefined ;如果有一个子节点，数据类型是 object ；如果有多个子节点，数据类型就是 array
 React 提供一个工具方法 React.Children 来处理 this.props.children 。我们可以用 React.Children.map 来遍历子节点
-由于 this.refs.[refName] 属性获取的是真实 DOM ，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错
-this.props 表示那些一旦定义，就不再改变的特性，而 this.state 是会随着用户互动而产生变化的特性
 我们写一个XML标签，实质上就是在调用 React.createElement 这个方法，并返回一个 ReactElement 对象
-渲染HTML标签，声明变量采用 首字母小写
-渲染React组件，声明变量采用 首字母大写
 当需要拓展我们的属性的时候，定义个一个属性对象，并通过 {…props} 的方式引入
 属性值使用表达式，只要用 {} 替换 ""
 在一个组件的子元素位置使用注释要用 {} 包起来
-直接在标签上使用style属性时，要写成style={{}}是两个大括号
-margin-top要写成marginTop
 如果需要使用自定义属性，要加 data- 前缀
-在编写JSX时，在 { } 中不能使用语句（if语句、for语句等等），但可以使用求值表达式
 map遍历的时候，需要为每一条记录添加key
 在ES6里，我们通过定义一个继承自React.Component的class来定义一个组件类
 给组件定义方法不再用 名字: function()的写法，而是直接用名字()，在方法的最后也不能有逗号了
@@ -24,112 +16,79 @@ map遍历的时候，需要为每一条记录添加key
 sources下，点开可以看到webpack:目录，里面可以直接看到我们开发态的源代码，方便调试
 "build": "rimraf app/dist && webpack -p --env.config production" 先清除dist目录
 
-//===================================================================
-凡是使用 JSX 的地方，都要加上 type="text/babel" 
-	例： <script type="text/babel"> 。。。 </script>
-ReactDOM.render()		//用于将模板转为 HTML 语言，并插入指定的 DOM 节点。
-	例：ReactDOM.render(
-			<h1>Hello, world!</h1>,
-		  	document.getElementById('example')
-		);
 //========================组件============================	
-//--------------组件的定义----------------    
-
+直接在标签上使用style属性时，要写成style={{}}是两个大括号
+class 属性需要写成 className ，for 属性需要写成 htmlFor
+margin-top要写成marginTop
 组件类只能包含一个顶层标签，否则也会报错。
 组件类的第一个字母必须大写
+渲染HTML标签，声明变量采用 首字母小写
 this.props.results			//获得组件属性数据
 this.props.children 		//属性表示组件的所有子节点
 this.props					//表示那些一旦定义，就不再改变的特性
 this.state					//表示会随着用户互动而产生变化的特性
-this.refs.[refName] 		//属性获取的是真实 DOM
+this.refs.[refName] 		//属性获取的是真实 DOM，所以必须等到虚拟 DOM 插入文档以后，才能使用这个属性，否则会报错
 PropTypes					//就是用来验证组件实例的属性是否符合要求
-getDefaultProps 			//方法可以用来设置组件属性的默认值。
-getInitialState 			//方法用于定义初始状态
-//-----------组件的生命周期-----------
-componentWillMount()		//已插入真实 DOM,进入状态之前
-componentDidMount()			//已插入真实 DOM,进入状态之后
-componentWillUpdate(object nextProps, object nextState)	//正在被重新渲染,进入状态之前
-componentDidUpdate(object prevProps, object prevState)	//正在被重新渲染,进入状态之后
-componentWillUnmount()		//已移出真实 DOM,进入状态之前
-componentWillReceiveProps(object nextProps)		//已加载组件收到新的参数时调用
-shouldComponentUpdate(object nextProps, object nextState)	//组件判断是否重新渲染时调用
-
-
-var HelloMessage = React.createClass({
-	//---------自定义的方法-------
-	handleClick: function() {
-    	this.refs.myTextInput.focus();
-  	},
-  	
-	//---------自带的方法---------
-	//设置组件属性的默认值
-	getDefaultProps : function () {
-	    return {
-	      title : 'Hello World'
-	    };
-	},
-	//用于定义初始状态
-	getInitialState(){
-		return {liked: false};
-	}
-	//返回组件
-  	render() {
-    	return <div>
-    				<h1>Hello {this.props.name}</h1>
-    				<p>{this.props.title}</p>
-    		   </div>;
-  	}
-});
-
-//--------------组件的使用-------------------
-
+//--------------组件的定义-------------------- 
+var 组件名 = React.createClass({
+	getDefaultProps： function(){},	//获得外部传入的属性
+	getInitialState: function(){},	//设置自身的状态值
+	render: function(){},			//定义需要需要渲染的dom结构
+	方法名: function(){},				//自定义方法
+	
+	//----组件的生命周期-------------
+	componentWillMount: function(){},			//已插入真实 DOM,进入状态之前
+	componentDidMount: function(){},			//已插入真实 DOM,进入状态之后
+	componentWillUpdate: function(object nextProps, object nextState){},	//正在被重新渲染,进入状态之前
+	componentDidUpdate: function(object prevProps, object prevState){},		//正在被重新渲染,进入状态之后
+	componentWillUnmount: function{},			//已移出真实 DOM,进入状态之前
+	componentWillReceiveProps: function(object nextProps){},				//已加载组件收到新的参数时调用
+	shouldComponentUpdate: function(object nextProps, object nextState){}	//组件判断是否重新渲染时调用
+}) 
+//--------------组件的定义------15.0.0改变-----------
+class 组件名 extends React.Component{
+ 	constructor(props){
+        super(props);
+        this.state ={}
+    }
+    componentDidMount() {}						//已插入真实 DOM,进入状态之后
+    componentWillUnmount() {}					//已移出真实 DOM,进入状态之前
+    componentWillReceiveProps(nextProps, preProps) {}	//已加载组件收到新的参数时调用
+    render(){									//定义需要需要渲染的dom结构
+      return <div>111</div>
+    }
+	方法名(){}										//自定义方法
+}
+//--------------组件渲染------------------
 ReactDOM.render(
-  <HelloMessage name="John" />,
-  document.getElementById('example')
-);
+	<组件名/>,
+	document.querySelector('#demo'),		//渲染的位置
+	function(){}							//渲染完成回调函数
+) 
+//------------组件间传值----------------------------------
+this.props.results			//获得组件属性数据
+this.props.children 		//属性表示组件的所有子节点
+this.props					//表示那些一旦定义，就不再改变的特性
+//------------------------
+子组件调用父组件方法
+this.props.方法名(参数);
 
-//=======================最简单的程序====================================
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<title>react练习</title>
-		<script src="lib/react.js" ></script>			<!--React 的核心库-->
-		<script src="lib/react-dom.js" ></script>		<!--提供与 DOM 相关的功能-->
-		<script src="lib/browser.min.js" ></script>		<!--将 JSX 语法转为 JavaScript 语法-->
-	</head>
-	
-	
-	<body>
-		<div id="example"></div>
-		
-		<!--凡事有使用JSX的地方都要加上type="text/babel"-->
-		<script  type="text/babel" >
-		
-			//组件定义
-			var ChildList = React.createClass({
-				render: function() {
-					var results = this.props.results;
-					return(
-						<ol>
-					        {results.map(function(result) {
-					          return <li key={result.id}>{result.text}</li>;
-					        })}
-					    </ol>
-					);
-				}
-			});
-			
-			var data = [{ id: 1, text: 'one' }, { id: 2, text: 'two' }, { id: 3, text: 'three' }];
-			
-			//于将模板转为 HTML 语言，并插入指定的 DOM 节点
-			ReactDOM.render(
-				<ChildList results={data} />,
-				document.getElementById('example')
-			);
-		</script>
-	</body>
-</html>
+<子组件  方法名={this.触发后执行的方法}/>
+
+//------------------------
+/* 触发事件 */
+//参数1：消息名字
+//参数2：传输的参数，传输的参数只能有一个值
+PubSub.publish('delete-item', {
+	index: this.props.index
+});
+					
+/* 监听事件 */
+//参数1：消息名字
+//参数2：事件执行方法
+PubSub.subscribe('delete-item', function(name, val){})
+
+
 //=======================React Router====================================
 http://www.ruanyifeng.com/blog/2016/05/react_router.html	//阮一峰教程
 
@@ -244,3 +203,14 @@ const Home = withRouter(
     },
   })
 )
+
+//========================JSX===========================
+Browser.js 的作用是将 JSX 语法转为 JavaScript 语法
+JSX 的基本语法规则：遇到 HTML 标签（以 < 开头），就用 HTML 规则解析；遇到代码块（以 { 开头），就用 JavaScript 规则解析
+在编写JSX时，在 { } 中不能使用语句（if语句、for语句等等），但可以使用求值表达式
+凡是使用 JSX 的地方，都要加上 type="text/babel" 
+	例： <script type="text/babel"> 。。。 </script>
+
+<h1>{1+1}</h1>		//表达式写在花括号 {} 中
+{/*注释...*/}			//注释需要写在花括号中
+<div>{arr}</div>	//允许在模板中插入数组，数组会自动展开所有成员
