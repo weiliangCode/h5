@@ -76,7 +76,92 @@ npm :基于包的规范实现的一个包管理工具
 //================nodejs服务器功能============================
 global				//全局对象
 require(‘路径’)		//模块引用
-var net = require('net')	//net模块包含了Node需要的所有TCP功能
+module.exports		//模块导出
+__dirname			//可以获取当前文件所属的目录的路径
+__filename			//可以获取当前文件的绝对路径
+console.time('标记名');		//计算时间开始位置
+console.timeEnd('标记名');	//计算时间结束位置
 
->>>>>>> 69739030a002fcffb6fffdf7a564e791a234635a
+//---------process------------------
+//对象是Node的一个全局对象，提供当前Node进程的信息。它可以在脚本的任意位置使用
+//不需要通过require方法加载
+process.argv		//返回当前进程的命令行参数数组
+process.env			//返回一个对象，成员为当前控制台的环境变量
+process.pid			//返回当前进程的进程号
+process.platform	//返回当前的操作系统平台，比如win32
+process.version		//返回Node的版本号，如4.3.1
+process.exit()		//该方法可以用来退出当前进程
+process.nextTick	//将任务放到当前一轮事件循环的尾部
+process.kill()		//通过指定一个进程id，终止该进程
+process.on('exit', function() {})	//当进程退出时，会触发exit事件
 
+
+
+//==============nodejs 自带的模块==================
+require('net')		//包含了Node需要的所有TCP功能
+
+//--------http模块--------------
+const http = require('http')		//服务器功能
+//创建服务器
+http.createServer(function (req,res) {
+}).listen(3000,'192.168.3.13');
+
+//--------fs模块--------------
+const fs = require('fs');			//提供的一个用于文件操作的一个模块
+fs.readFile()						//异步读取文件
+fs.readFileSync()					//同步读取文件
+fs.writeFile()						//写入文件
+fs.exists()							//异步验证路径是否存在
+fs.existsSync()						//同步验证路径是否存在
+fs.stat()							//异步获取文件信息
+fs.statSync()						//同步获取文件信息
+fs.unlink()							//异步删除文件
+fs.unlinkSync						//同步删除文件
+fs.rmdir()							//只能删除空目录
+fs.mkdir()							//创建目录：如果有，什么都不做，不会报错，如果没有，直接创建
+fs.readdir()						//异步读取一个目录
+fs.readdirSync()					//同步读取一个目录
+fs.createReadStream()				//创建一个文件读取流
+fs.createWriteStream()				//创建一个文件写入流
+
+
+//--------os模块----------------
+const os = require('os');			//提供系统相关功能
+os.hostname()						//主机名
+os.freemem()						//剩余内存量
+os.platform()						//操作系统平台
+os.release()						//操作系统版本
+os.tmpDir()							//应用程序临时目录
+os.totalmem()						//总内存大小
+os.cpus().length					//CPU核心数量
+
+//--------path模块----------------
+const path = require('path');		//主要用来处理文件的路径的问题的
+path.basename(p[,ext]) 				//注意第二个参数用法  获取文件名
+path.dirname(p)						//获取文件目录
+path.extname(p)						//获取文件扩展名
+path.format(pathObject) 和 parse(pathString)
+path.isAbsolute(path)				//判断是否是绝对路径
+path.join([path1][,path2][,...])	//拼接路径字符串
+path.normalize(p)					//将非标准路径转换为标准路径
+path.sep							//获取操作系统的文件路径分隔符
+
+//---------readline模块---------
+const readline = require('readline');//该模块专门用来处理按照行读取的方式
+readline.createInterface()			//创建一个要读取的流接口
+
+
+//===============nodejs插件===================
+npm install 插件名 --save			//安装
+const 变量名 = require('插件名') 		//引入
+
+//----------express-----------------
+const express = require('express')
+const app = express()
+
+app.get('/', function (req, res) {});	//接收get请求
+app.listen(3000,'192.168.33.1');		//设置请求地址和端口号
+
+//----------request-----------------
+const request = require('request');	
+request('www.baidu.com', function (err, res, body) {});
