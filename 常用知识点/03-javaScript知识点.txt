@@ -219,6 +219,12 @@ console.log('%c this is color! ', 'background: #222; color: #bada55');
         //location.assign("http://www.baidu.com");
         //跳转页面 方法三  (不能返回)
          location.replace("http://www.baidu.com");
+         
+        window.history.go(-1);  //返回上一页
+		window.history.back();  //返回上一页
+		//如果要强行刷新的话就是：window.history.back();location.reload();
+ 
+		window.location.go(-1); //刷新上一页
 16.============.location.href 用法=====================
     top.location.href="url"        //在顶层页面打开url（跳出框架）
 　　self.location.href="url"       //仅在本页面打开url地址
