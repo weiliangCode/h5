@@ -213,11 +213,21 @@ h2{ margin:0; font-weight:normal;}
 <table class="wikitable" width="100%">
   <tr>
     <th width="10%">用户名</th>
-    <td width="90%">/^[a-z0-9_-]{3,16}$/</td>
+    <td width="90%">/^[a-z0-9_-]{3,16}$/ <br/>
+    	/^[a-zA-Z_]\w{3,11}$/
+    </td>
   </tr>
   <tr>
     <th scope="row">密码</th>
-    <td>/^[a-z0-9_-]{6,18}$/</td>
+    <td>/^[a-z0-9_-]{6,18}$/ <br/>
+    	/^.{8,20}$/
+    </td>
+  </tr>
+  <tr>
+    <th scope="row">手机号</th>
+    <td> /^\d{11}$/ <br/>
+    	/^[1][3578][0-9]{9}$/
+    </td>
   </tr>
   <tr>
     <th scope="row">十六进制值</th>

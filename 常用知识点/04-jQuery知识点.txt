@@ -162,3 +162,6 @@ function isIE(paramUrl) {
     else  
         return paramUrl;  
 }  
+
+$.get(URL,callback);
+$.post(URL,data,callback);
