@@ -134,6 +134,7 @@ os.release()						//操作系统版本
 os.tmpDir()							//应用程序临时目录
 os.totalmem()						//总内存大小
 os.cpus().length					//CPU核心数量
+os.networkInterfaces				//方法返回一个对象,包含只有被赋予网络地址的网络接口
 
 //--------path模块----------------
 const path = require('path');		//主要用来处理文件的路径的问题的
@@ -143,6 +144,7 @@ path.extname(p)						//获取文件扩展名
 path.format(pathObject) 和 parse(pathString)
 path.isAbsolute(path)				//判断是否是绝对路径
 path.join([path1][,path2][,...])	//拼接路径字符串
+path.resolve						//把一个路径或路径片段的序列解析为一个绝对路径
 path.normalize(p)					//将非标准路径转换为标准路径
 path.sep							//获取操作系统的文件路径分隔符
 

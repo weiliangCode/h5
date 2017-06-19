@@ -17,8 +17,8 @@ include          //文件引入，引入失败后程序继续执行
 require          //文件引入，引入失败后程序终止执行
 in_array()       //是否在数组中
 array_key_exists ()     //检测数组中是否存在key
-file_get_contents()       //读取文件,参数 文件名 返回字符串
-file_put_contents()                //写入文件，参数1 文件名，2要写入的json数据
+file_get_contents()     //读取文件,参数 文件名 返回字符串
+file_put_contents()     //写入文件，参数1 文件名，2要写入的json数据
 
 //=========================================
 数据类型
@@ -66,4 +66,8 @@ $_SERVER["REQUEST_METHOD"] == "GET"     //判断是不是get请求
 $_SERVER["REQUEST_METHOD"] == "POST"    //判断是不是post请求
 json_encode()   //json编码(json序列化)，把对象转换成json字符串
 header('Access-Control-Allow-Origin:*');   //PHP后台设置支持跨域访问
+
+//=========================================
+//调试时打印日志
+file_put_contents('post.log',json_encode($post_data),FILE_APPEND);
 

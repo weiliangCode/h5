@@ -94,6 +94,8 @@ console.log('%c this is color! ', 'background: #222; color: #bada55');
     .onresize=              //窗口改变事件
     .onscroll =             //滚动事件
 
+
+
 ---------------监听事件--------------------
     对象.addEventListener("click",fun1,false);     //添加监听器 false(冒泡) true(捕获)
     对象.removeEventListener("click",fun1);        //移除监听器

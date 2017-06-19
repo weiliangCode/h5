@@ -97,11 +97,34 @@ src         url 要播放的音频的 URL。
 .clearRect()    //删除指定区域
 .fillStyle      //设置填充颜色
 
-
-
-
-
-
-
-
-
+//==============新增标签=============================
+<article>		//定义文章。
+<aside>			//定义页面内容之外的内容。
+<bdi>			//定义文本的文本方向，使其脱离其周围文本的方向设置。
+<canvas>		//定义图形。
+<command>		//定义命令按钮。
+<datalist>		//定义下拉列表。
+<details>		//定义元素的细节。
+<dialog>		//定义对话框或窗口。
+<embed>			//定义外部交互内容或插件。
+<figcaption>	//定义 figure 元素的标题。
+<figure>		//定义媒介内容的分组，以及它们的标题。
+<footer>		//定义 section 或 page 的页脚。
+<header>		//定义 section 或 page 的页眉。
+<keygen>		//定义生成密钥。
+<mark>			//定义有记号的文本。
+<meter>			//定义预定义范围内的度量。
+<nav>			//定义导航链接。
+<output>		//定义输出的一些类型。
+<progress>		//定义任何类型的任务的进度。
+<rp>			//定义若浏览器不支持 ruby 元素显示的内容。
+<rt>			//定义 ruby 注释的解释。
+<ruby>			//定义 ruby 注释。
+<section>		//定义 section。
+<summary>		//为 <details> 元素定义可见的标题。
+<time>			//定义日期/时间。
+<track>			//定义用在媒体播放器中的文本轨道。
+<wbr>			//定义可能的换行符。
+<source>		//定义媒介源。
+<audio>			//定义声音内容。
+<video>			//定义视频。

@@ -16,3 +16,10 @@ IOS自动获得焦点
 		document.addEventListener("plusready", plusReady, false);
 	</script>
 </body>
+
+
+
+//页面初始化
+mui.plusReady()		//HTML5+的api，建议都写在
+mui.init()    		//mui插件初始化
+mui.ready()    		//当DOM准备就绪时，指定一个函数来执行。

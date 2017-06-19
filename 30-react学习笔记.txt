@@ -15,3 +15,14 @@ npm ls -g --deoth=1 2>/dev/null | grep generator-
 
 
 event.target
+
+
+
+better-npm-run 			//更好地跑npm脚本，解决跨平台的兼容性问题
+babel-node				//命令可以直接运行ES6脚本
+
+
+  /**
+    glob		//用来匹配文件
+    cross-env   //解决跨平台设置NODE_ENV的问题
+   **/

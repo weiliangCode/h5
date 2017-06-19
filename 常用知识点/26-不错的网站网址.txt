@@ -15,6 +15,7 @@ http://www.dcloud.io/                               //MUI官网
     可以实现原生App的很多功能
 https://cn.vuejs.org/                               //vue官网
 https://facebook.github.io/react/					//react官网
+https://www.oschina.net/news/83093/react-router-v4	//React Router V4 中文文档
 https://github.com/                                 //github官网
 https://github.com/huangweilinag                    //我的github
 https://open.weixin.qq.com/                         //微信开放平台
@@ -38,4 +39,12 @@ https://zhuanlan.zhihu.com/p/26484814				//PHP学习资料
 http://www.bootcdn.cn/	
 https://bootstrap-vue.github.io/docs/setup			//bootstrap-vue官网							//CDN 官网
 http://nodejs.cn/download/releases/					//nodejs所有版本
-http://nodejs.cn/									//nodejs中文官网				 	
+http://nodejs.cn/									//nodejs中文官网	
+
+https://segmentfault.com/a/1190000005811347?_ea=934705		//cross-env nodejs包 简单介绍			 	
+https://segmentfault.com/a/1190000003909268			//PostCSS 是个什么鬼东西
+http://frozenui.github.io/							//Frozen UI 官网
+
+
+http://www.2cto.com/kf/201604/497477.html           //安卓打包教程1
+https://jingyan.baidu.com/article/4dc408489c11b0c8d946f182.html?qq-pf-to=pcqq.c2c   //安卓打包教程2

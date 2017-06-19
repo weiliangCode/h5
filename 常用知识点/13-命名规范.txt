@@ -21,6 +21,18 @@ temp        存放客户原始资料
 js          存放JavaScript脚本
 css         存放CSS文件
 
+//==============react项目文件================
+src 		//源文件
+server		//服务器
+config		//配置文件
+build		//
+common		//
+components	//
+layouts		//
+routes		//
+styles		//
+
+
 //==============网页========================
     头：      header
     内容：    content/container
