@@ -1,0 +1,42 @@
+//需要安装的软件
+centos7,nginx,php,mysql
+
+yum install -y nginx	//安装nginx
+nginx			//启动nginx
+nginx -s reload	//重启nginx
+killall nginx	//停止nginx
+nginx -v		//查看版本
+nginx -V		//查看详细信息
+//添加至服务管理列表，设置开机自启。
+# chkconfig --add nginx
+# chkconfig  nginx on
+
+
+service mysqld restart	//重启mysql
+
+
+
+//常用指令
+passwd root		//修改密码
+init 6			//重启服务器材
+ls				//查看文件
+ls	-a			//查看所有文件包含隐藏文件
+mkdir 文件名		//创建文件夹
+mkdir -p 文件名/文件名		//递归创建文件夹
+cd 路径			//进入文件夹
+cd ..			//返回上一级目录
+rm 文件名			//删除文件
+rm -r 文件夹		//递归删除文件	
+rm -rf 随便		//删除整个文件
+mv 文件1  文件夹2/	//文件1移动到文件夹2里面
+mv 文件1  文件2	    //文件1重命名文件2
+vim	文件名		//打开文件
+i				//进入编辑模式
+:q				//退出
+
+
+
+
+
+
+//前面带.的文件是隐藏文件
