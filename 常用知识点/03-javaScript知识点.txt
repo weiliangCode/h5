@@ -372,7 +372,6 @@ console.log('%c this is color! ', 'background: #222; color: #bada55');
     //3, 然后继续查找Employee原型中是否有name属性, Employee原型就是person对象;
     //4, person对象会查找Person构造函数中是否有name属性, 发现有,所以使用的其实是继承自Person构造函数的name属性值;
 
-
 //=======================================
     delete              //删除对象
     JSON.parse()        //json解析    参数：JSON字符串

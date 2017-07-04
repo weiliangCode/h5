@@ -1,0 +1,18 @@
+yum install zlib
+yum install zlib-devel
+make
+history				//查看所有指令
+
+ls					//列出文件
+
+
+
+
+//=============redis=================
+redis-cli				//连接redis
+set s1 333				//赋值
+get s1					//取值
+del s1					//删除
+redis-cli shutdown		//停止redis服务
+redis-server			//启动 Redis 服务
+redis-server redis.conf	//启动 Redis 服务
